@@ -2,8 +2,7 @@ import "@/styles/globals.css";
 
 import { type Metadata } from "next";
 import { Inter } from "next/font/google";
-import { Navigation } from "@/components/navigation";
-import { Footer } from "@/components/footer";
+import { LayoutShell } from "@/components/layout-shell";
 
 export const metadata: Metadata = {
   title: "Makopa Bau GmbH - Ihr zuverlässiger Partner im Handwerk",
@@ -23,9 +22,7 @@ export default function RootLayout({
   return (
     <html lang="de" className={`${inter.variable}`}>
       <body className="bg-background min-h-screen">
-        <Navigation />
-        {children}
-        <Footer />
+        <LayoutShell>{children}</LayoutShell>
       </body>
     </html>
   );
