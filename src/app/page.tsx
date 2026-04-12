@@ -407,11 +407,11 @@ export default function HomePage() {
                 <ArrowRight className="h-4 w-4" />
               </Link>
               <a
-                href="tel:+491234567890"
+                href="tel:+4922389356034"
                 className="inline-flex items-center gap-2 rounded-lg border border-border px-7 py-3.5 text-sm font-semibold text-foreground transition-all hover:border-primary/30 hover:bg-primary/5"
               >
                 <Phone className="h-4 w-4 text-primary" />
-                +49 (0) 123 456789
+                +49 (0) 2238 9356034
               </a>
             </div>
           </motion.div>

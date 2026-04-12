@@ -3,175 +3,103 @@
 import Link from "next/link";
 import { motion } from "motion/react";
 import {
-  Flame,
-  Thermometer,
-  Zap,
-  Leaf,
-  CheckCircle2,
+  Warehouse,
+  KeyRound,
+  Ruler,
+  ClipboardCheck,
+  Cog,
   Phone,
-  Wrench,
-  Timer,
   ArrowRight,
-  BadgeEuro,
+  CheckCircle2,
 } from "lucide-react";
 
 /* ─── Colors ──────────────────────────────────────────────────── */
-const NAVY = "#0C2340";
-const NAVY_LIGHT = "#143054";
+const NAVY = "#1A3A63";
+const NAVY_LIGHT = "#224B7A";
 const TEAL = "#0097A7";
-const TEAL_LIGHT = "#00ACC1";
-const TEAL_PALE = "#E0F7FA";
-const OFF_WHITE = "#F8FAFC";
 
 /* ─── Data ────────────────────────────────────────────────────── */
 
 const services = [
   {
-    title: "Heizungsinstallation",
-    icon: Flame,
+    title: "Vermietung von Baustelleneinrichtung",
+    icon: KeyRound,
     description:
-      "Moderne Heizungsanlagen für Neubauten und Sanierungen - effizient und umweltfreundlich.",
+      "Flexible Lösungen für jede Baustellengröße.",
     features: [
-      "Gas-Brennwertkessel",
-      "Wärmepumpen",
-      "Pelletheizungen",
-      "Solarthermie",
+      "Bereitstellung & Vermietung von Baustelleneinrichtung",
+      "Organisation & Aufbau von Lager-, Arbeits- & Verkehrsflächen",
+      "Anpassung der Einrichtung an Baufortschritt & Projektanforderungen",
+      "Unterstützung bei der strukturierten Baustellenorganisation",
     ],
   },
   {
-    title: "Wartung & Service",
-    icon: Wrench,
+    title: "Vermessungsrelevante Konstruktionen",
+    icon: Ruler,
     description:
-      "Regelmäßige Wartung und schneller Reparaturservice für alle Heizungstypen.",
+      "Präzision als Grundlage für den Bau.",
     features: [
-      "Wartungsverträge",
-      "24h-Notdienst",
-      "Reparaturen",
-      "Ersatzteilservice",
+      "Herstellung von Schnurgerüsten und Absteckungen",
+      "Einrichtung von Höhen- und Bezugspunkten",
+      "Erstellung temporärer Konstruktionen für die Bauausführung",
+      "Unterstützung der Vermessungsarbeiten auf der Baustelle",
     ],
   },
   {
-    title: "Modernisierung",
-    icon: Zap,
+    title: "Antragstellung & Genehmigungsmanagement",
+    icon: ClipboardCheck,
     description:
-      "Heizungsmodernisierung für mehr Effizienz und geringere Heizkosten.",
+      "Wir kümmern uns um die formalen Voraussetzungen.",
     features: [
-      "Energieberatung",
-      "Fördermittelberatung",
-      "Hybridlösungen",
-      "Smart Home Integration",
+      "Beantragung von Baustelleneinrichtungen im öffentlichen Raum",
+      "Mitwirkung bei der Erstellung erforderlicher Unterlagen",
+      "Abstimmung mit Behörden und zuständigen Stellen",
+      "Begleitung des Genehmigungsprozesses",
     ],
   },
-];
-
-const technologies = [
   {
-    icon: Flame,
-    title: "Gas-Brennwert",
-    description: "Hocheffiziente Gasheizungen mit Brennwerttechnik",
-    efficiency: "bis zu 98%",
-  },
-  {
-    icon: Zap,
-    title: "Wärmepumpe",
-    description: "Umweltfreundliche Wärmeerzeugung aus der Luft",
-    efficiency: "COP bis 5,5",
-  },
-  {
-    icon: Leaf,
-    title: "Pelletheizung",
-    description: "CO2-neutrale Heizung mit Holzpellets",
-    efficiency: "bis zu 95%",
-  },
-  {
-    icon: Thermometer,
-    title: "Hybridlösungen",
-    description: "Kombination verschiedener Heiztechnologien",
-    efficiency: "optimal",
+    title: "Vermietung ausgewählter Baustellengeräte",
+    icon: Cog,
+    description:
+      "Die passende Technik zur richtigen Zeit.",
+    features: [
+      "Vermietung ausgewählter & projektspezifischer Geräte",
+      "Funktionsgeprüfte und einsatzbereite Technik",
+      "Flexible Einsatzdauer abgestimmt auf Baufortschritt",
+      "Integration in den Baustellenablauf",
+    ],
   },
 ];
 
 const advantages = [
   {
-    icon: Timer,
-    title: "Schnelle Installation",
-    description: "Professionelle und termingerechte Montage",
+    title: "Entlastung bei Organisation",
+    description: "Weniger Bürokratie für Sie — mehr Fokus auf Ihr Bauprojekt.",
   },
   {
-    icon: Wrench,
-    title: "Fachkompetenz",
-    description: "Zertifizierte Heizungsinstallateure",
+    title: "Praxiserprobte Lösungen",
+    description: "Direkt aus dem Baualltag, verlässlich und effizient.",
   },
   {
-    icon: Leaf,
-    title: "Umweltfreundlich",
-    description: "Moderne und nachhaltige Heiztechnik",
+    title: "Flexible Anpassung",
+    description: "An Projektgrößen und individuelle Anforderungen.",
   },
   {
-    icon: CheckCircle2,
-    title: "Garantie",
-    description: "Langfristige Garantie auf alle Arbeiten",
+    title: "Dienstleistung & Vermietung",
+    description: "Kombination aus Service und Technik aus einer Hand.",
   },
-];
-
-const processSteps = [
-  {
-    step: "01",
-    title: "Beratung",
-    description: "Kostenlose Beratung und Vor-Ort-Besichtigung",
-  },
-  {
-    step: "02",
-    title: "Planung",
-    description: "Individuelle Planung und Angebotserstellung",
-  },
-  {
-    step: "03",
-    title: "Installation",
-    description: "Professionelle Installation durch Fachkräfte",
-  },
-  {
-    step: "04",
-    title: "Service",
-    description: "Wartung und Service für lange Lebensdauer",
-  },
-];
-
-const foerderungen = [
-  { value: "bis 40%", label: "BEG-Förderung für Wärmepumpen" },
-  { value: "bis 20%", label: "Für Gas-Brennwertkessel" },
-  { value: "bis 35%", label: "Für Biomasse-Heizungen" },
 ];
 
 /* ─── Page ────────────────────────────────────────────────────── */
 
 export default function HeizungPage() {
   return (
-    <main className="min-h-screen bg-white">
+    <main>
       {/* ── Hero ── */}
       <section
         className="relative overflow-hidden"
         style={{ backgroundColor: NAVY }}
       >
-        {/* Geometric bg pattern */}
-        <div
-          className="absolute inset-0 opacity-[0.07]"
-          style={{
-            backgroundImage: `
-              linear-gradient(30deg, ${TEAL} 12%, transparent 12.5%, transparent 87%, ${TEAL} 87.5%, ${TEAL}),
-              linear-gradient(150deg, ${TEAL} 12%, transparent 12.5%, transparent 87%, ${TEAL} 87.5%, ${TEAL}),
-              linear-gradient(30deg, ${TEAL} 12%, transparent 12.5%, transparent 87%, ${TEAL} 87.5%, ${TEAL}),
-              linear-gradient(150deg, ${TEAL} 12%, transparent 12.5%, transparent 87%, ${TEAL} 87.5%, ${TEAL}),
-              linear-gradient(60deg, rgba(0,151,167,0.3) 25%, transparent 25.5%, transparent 75%, rgba(0,151,167,0.3) 75%, rgba(0,151,167,0.3)),
-              linear-gradient(60deg, rgba(0,151,167,0.3) 25%, transparent 25.5%, transparent 75%, rgba(0,151,167,0.3) 75%, rgba(0,151,167,0.3))
-            `,
-            backgroundSize: "80px 140px",
-            backgroundPosition:
-              "0 0, 0 0, 40px 70px, 40px 70px, 0 0, 40px 70px",
-          }}
-        />
-
-        {/* Gradient overlay */}
         <div
           className="absolute inset-0"
           style={{
@@ -180,60 +108,53 @@ export default function HeizungPage() {
           }}
         />
 
-        <div className="relative mx-auto max-w-7xl px-6 py-20 md:py-28 lg:py-36">
-          <div className="mx-auto max-w-3xl text-center">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-              className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-1.5 backdrop-blur-sm"
-            >
-              <Flame className="h-4 w-4" style={{ color: TEAL_LIGHT }} />
-              <span className="text-xs font-medium text-white/70">
-                Heizung & Wärmetechnik
-              </span>
-            </motion.div>
-
+        <div className="relative mx-auto max-w-5xl px-6 py-20 md:py-24">
+          <div className="flex flex-col items-center text-center">
             <motion.h1
               initial={{ opacity: 0, y: 25 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.1 }}
-              className="mb-6 text-4xl leading-[1.1] font-bold tracking-tight text-white sm:text-5xl lg:text-[3.5rem]"
+              className="mb-6 text-4xl leading-[1.08] font-bold tracking-tight text-white sm:text-5xl lg:text-6xl"
             >
-              Heizung{" "}
-              <span style={{ color: TEAL_LIGHT }}>die wärmt.</span>
+              Baustellenservices & Vermietung
             </motion.h1>
 
             <motion.p
               initial={{ opacity: 0, y: 25 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="mx-auto mb-8 max-w-2xl text-lg leading-relaxed text-slate-300"
+              transition={{ duration: 0.6, delay: 0.15 }}
+              className="mb-4 text-lg font-semibold text-primary sm:text-xl"
             >
-              Installation, Wartung und Modernisierung von Heizungsanlagen.
-              Effiziente und umweltfreundliche Wärmelösungen für Ihr Zuhause.
+              Struktur, Effizienz und Entlastung für Ihr Bauprojekt
+            </motion.p>
+
+            <motion.p
+              initial={{ opacity: 0, y: 25 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="mb-10 max-w-2xl text-lg leading-relaxed text-slate-300"
+            >
+              Ein funktionierender Baustellenbetrieb beginnt lange vor der
+              eigentlichen Bauausführung. Von der Planung über die Einrichtung
+              bis zur Vermietung — praxisgerechte Lösungen aus einer Hand.
             </motion.p>
 
             <motion.div
               initial={{ opacity: 0, y: 25 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
-              className="flex flex-wrap justify-center gap-3"
+              className="flex flex-wrap justify-center gap-4"
             >
               <Link
                 href="/kontakt"
-                className="inline-flex items-center gap-2 rounded-lg px-6 py-3 text-sm font-semibold text-white shadow-lg transition-all hover:shadow-xl hover:brightness-110"
-                style={{
-                  backgroundColor: TEAL,
-                  boxShadow: "0 10px 30px -5px rgba(0,151,167,0.3)",
-                }}
+                className="inline-flex items-center gap-2 rounded-lg bg-primary px-7 py-3.5 text-sm font-semibold text-white shadow-lg shadow-primary/30 transition-all hover:shadow-xl hover:brightness-110"
               >
-                Heizungsberatung anfordern
+                Angebot anfordern
                 <ArrowRight className="h-4 w-4" />
               </Link>
               <Link
                 href="#leistungen"
-                className="inline-flex items-center gap-2 rounded-lg border border-white/15 px-6 py-3 text-sm font-semibold text-white/80 transition-all hover:border-white/30 hover:bg-white/5 hover:text-white"
+                className="inline-flex items-center gap-2 rounded-lg border border-white/15 px-7 py-3.5 text-sm font-semibold text-white/80 transition-all hover:border-white/30 hover:bg-white/5 hover:text-white"
               >
                 Unsere Leistungen
               </Link>
@@ -243,11 +164,7 @@ export default function HeizungPage() {
       </section>
 
       {/* ── Services ── */}
-      <section
-        id="leistungen"
-        className="py-20 md:py-28"
-        style={{ backgroundColor: OFF_WHITE }}
-      >
+      <section id="leistungen" className="bg-white py-20 md:py-24">
         <div className="mx-auto max-w-7xl px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -255,25 +172,16 @@ export default function HeizungPage() {
             viewport={{ once: true }}
             className="mb-16 text-center"
           >
-            <span
-              className="mb-3 inline-block text-sm font-semibold tracking-wider uppercase"
-              style={{ color: TEAL }}
-            >
-              Leistungen
-            </span>
-            <h2
-              className="mb-4 text-3xl font-bold tracking-tight md:text-4xl"
-              style={{ color: NAVY }}
-            >
-              Unsere Heizungsleistungen
+            <h2 className="mb-4 text-3xl font-bold tracking-tight text-foreground md:text-4xl">
+              Unsere Leistungen im Überblick
             </h2>
-            <p className="mx-auto max-w-2xl text-slate-500">
-              Von der Installation bis zur Wartung — wir sind Ihr kompetenter
-              Partner für alle Heizungsthemen.
+            <p className="mx-auto max-w-2xl text-muted-foreground">
+              Baustelleneinrichtung, Genehmigungen, Hilfskonstruktionen und
+              ausgewählte Geräte für strukturierte Projektabläufe.
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
+          <div className="grid gap-5 md:grid-cols-2">
             {services.map((service, i) => {
               const Icon = service.icon;
               return (
@@ -282,40 +190,27 @@ export default function HeizungPage() {
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: i * 0.1 }}
-                  className="relative h-full overflow-hidden rounded-xl border border-slate-200/80 bg-white p-7 transition-all hover:shadow-xl hover:shadow-slate-200/50"
+                  transition={{ duration: 0.5, delay: i * 0.08 }}
+                  className="group relative flex h-full flex-col overflow-hidden rounded-xl border border-border bg-white p-6 transition-all hover:border-slate-300 hover:shadow-xl hover:shadow-slate-200/50"
                 >
-                  {/* Top accent line */}
-                  <div
-                    className="absolute top-0 right-0 left-0 h-1"
-                    style={{ backgroundColor: TEAL }}
-                  />
-                  <div
-                    className="mb-5 flex h-13 w-13 items-center justify-center rounded-xl"
-                    style={{ backgroundColor: TEAL_PALE }}
-                  >
-                    <Icon className="h-6 w-6" style={{ color: TEAL }} />
+                  <div className="absolute top-0 right-0 left-0 h-1 bg-primary transition-all group-hover:h-1.5" />
+                  <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10">
+                    <Icon className="h-6 w-6 text-primary" />
                   </div>
-                  <h3
-                    className="mb-2 text-lg font-bold"
-                    style={{ color: NAVY }}
-                  >
+                  <h3 className="mb-1.5 text-base font-bold text-foreground">
                     {service.title}
                   </h3>
-                  <p className="mb-5 text-sm leading-relaxed text-slate-500">
+                  <p className="mb-4 text-sm leading-relaxed text-muted-foreground">
                     {service.description}
                   </p>
-                  <ul className="space-y-2.5">
+                  <ul className="mt-auto space-y-2">
                     {service.features.map((feature) => (
                       <li
                         key={feature}
-                        className="flex items-center gap-2 text-sm"
+                        className="flex items-start gap-2 text-xs text-slate-500"
                       >
-                        <CheckCircle2
-                          className="h-4 w-4 flex-shrink-0"
-                          style={{ color: TEAL }}
-                        />
-                        <span className="text-slate-600">{feature}</span>
+                        <CheckCircle2 className="mt-0.5 h-3.5 w-3.5 shrink-0 text-primary" />
+                        <span>{feature}</span>
                       </li>
                     ))}
                   </ul>
@@ -326,195 +221,52 @@ export default function HeizungPage() {
         </div>
       </section>
 
-      {/* ── Technologies ── */}
-      <section className="bg-white py-20 md:py-28">
-        <div className="mx-auto max-w-7xl px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="mb-16 text-center"
-          >
-            <span
-              className="mb-3 inline-block text-sm font-semibold tracking-wider uppercase"
-              style={{ color: TEAL }}
-            >
-              Technologien
-            </span>
-            <h2
-              className="mb-4 text-3xl font-bold tracking-tight md:text-4xl"
-              style={{ color: NAVY }}
-            >
-              Moderne Heiztechnologien
-            </h2>
-            <p className="mx-auto max-w-2xl text-slate-500">
-              Wir installieren die neuesten und effizientesten Heizungssysteme
-              für maximalen Komfort.
-            </p>
-          </motion.div>
-
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
-            {technologies.map((tech, i) => {
-              const Icon = tech.icon;
-              return (
-                <motion.div
-                  key={tech.title}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: i * 0.1 }}
-                  className="relative overflow-hidden rounded-xl border border-slate-200/80 bg-white p-7 text-center transition-all hover:shadow-xl hover:shadow-slate-200/50"
-                >
-                  {/* Top accent line */}
-                  <div
-                    className="absolute top-0 right-0 left-0 h-1"
-                    style={{ backgroundColor: TEAL }}
-                  />
-                  <div
-                    className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-xl"
-                    style={{ backgroundColor: TEAL_PALE }}
-                  >
-                    <Icon className="h-6 w-6" style={{ color: TEAL }} />
-                  </div>
-                  <h3
-                    className="mb-2 text-lg font-bold"
-                    style={{ color: NAVY }}
-                  >
-                    {tech.title}
-                  </h3>
-                  <p className="mb-4 text-sm leading-relaxed text-slate-500">
-                    {tech.description}
-                  </p>
-                  <div
-                    className="rounded-lg px-3 py-2"
-                    style={{ backgroundColor: TEAL_PALE }}
-                  >
-                    <span
-                      className="text-sm font-semibold"
-                      style={{ color: TEAL }}
-                    >
-                      Effizienz: {tech.efficiency}
-                    </span>
-                  </div>
-                </motion.div>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-
-      {/* ── Advantages ── */}
+      {/* ── Warum Makopa ── */}
       <section
-        className="py-20 md:py-28"
-        style={{ backgroundColor: OFF_WHITE }}
+        className="relative overflow-hidden py-20"
+        style={{ backgroundColor: NAVY }}
       >
-        <div className="mx-auto max-w-7xl px-6">
+        <div
+          className="pointer-events-none absolute top-1/2 left-1/2 h-[700px] w-[900px] -translate-x-1/2 -translate-y-1/2 rounded-full opacity-[0.07]"
+          style={{
+            background: `radial-gradient(ellipse, ${TEAL} 0%, transparent 70%)`,
+          }}
+        />
+        <div className="relative mx-auto max-w-7xl px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="mb-16 text-center"
+            transition={{ duration: 0.6 }}
+            className="mb-12"
           >
-            <span
-              className="mb-3 inline-block text-sm font-semibold tracking-wider uppercase"
-              style={{ color: TEAL }}
-            >
-              Vorteile
-            </span>
-            <h2
-              className="mb-4 text-3xl font-bold tracking-tight md:text-4xl"
-              style={{ color: NAVY }}
-            >
-              Ihre Vorteile
+            <h2 className="mb-3 text-sm font-semibold tracking-wider text-primary uppercase">
+              Unser Ansatz
             </h2>
-            <p className="mx-auto max-w-2xl text-slate-500">
-              Warum Sie uns für Ihr Heizungsprojekt wählen sollten.
+            <p className="max-w-2xl text-2xl font-bold text-white md:text-3xl">
+              Baustellen intelligent organisieren.
+            </p>
+            <p className="mt-4 max-w-2xl leading-relaxed text-slate-300">
+              Wir verstehen Baustellen nicht nur als Ort der Ausführung, sondern
+              als System, das funktionieren muss. Deshalb kombinieren wir
+              Organisation, Technik und praktische Erfahrung.
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
-            {advantages.map((advantage, i) => {
-              const Icon = advantage.icon;
-              return (
-                <motion.div
-                  key={advantage.title}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: i * 0.1 }}
-                  className="text-center"
-                >
-                  <div
-                    className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-xl"
-                    style={{ backgroundColor: TEAL_PALE }}
-                  >
-                    <Icon className="h-6 w-6" style={{ color: TEAL }} />
-                  </div>
-                  <h3
-                    className="mb-2 text-lg font-bold"
-                    style={{ color: NAVY }}
-                  >
-                    {advantage.title}
-                  </h3>
-                  <p className="text-sm leading-relaxed text-slate-500">
-                    {advantage.description}
-                  </p>
-                </motion.div>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-
-      {/* ── Process ── */}
-      <section className="bg-white py-20 md:py-28">
-        <div className="mx-auto max-w-7xl px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="mb-16 text-center"
-          >
-            <span
-              className="mb-3 inline-block text-sm font-semibold tracking-wider uppercase"
-              style={{ color: TEAL }}
-            >
-              Ablauf
-            </span>
-            <h2
-              className="mb-4 text-3xl font-bold tracking-tight md:text-4xl"
-              style={{ color: NAVY }}
-            >
-              Von der Beratung zur neuen Heizung
-            </h2>
-            <p className="mx-auto max-w-2xl text-slate-500">
-              So läuft Ihr Heizungsprojekt mit uns ab.
-            </p>
-          </motion.div>
-
-          <div className="grid grid-cols-1 gap-8 md:grid-cols-4">
-            {processSteps.map((item, i) => (
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+            {advantages.map((item, i) => (
               <motion.div
-                key={item.step}
-                initial={{ opacity: 0, y: 20 }}
+                key={item.title}
+                initial={{ opacity: 0, y: 25 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: i * 0.1 }}
-                className="text-center"
+                className="rounded-xl border border-white/10 bg-white/5 p-6"
               >
-                <div
-                  className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full text-xl font-bold text-white"
-                  style={{ backgroundColor: TEAL }}
-                >
-                  {item.step}
-                </div>
-                <h3
-                  className="mb-2 text-lg font-bold"
-                  style={{ color: NAVY }}
-                >
+                <h3 className="mb-2 text-lg font-bold text-white">
                   {item.title}
                 </h3>
-                <p className="text-sm leading-relaxed text-slate-500">
+                <p className="text-sm leading-relaxed text-slate-300">
                   {item.description}
                 </p>
               </motion.div>
@@ -523,144 +275,49 @@ export default function HeizungPage() {
         </div>
       </section>
 
-      {/* ── Förderungen ── */}
-      <section
-        className="py-20 md:py-28"
-        style={{ backgroundColor: OFF_WHITE }}
-      >
-        <div className="mx-auto max-w-7xl px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="overflow-hidden rounded-2xl border border-slate-200/80"
-            style={{ backgroundColor: TEAL_PALE }}
-          >
-            <div className="p-8 md:p-12">
-              <div className="mb-10 text-center">
-                <div
-                  className="mx-auto mb-4 flex h-13 w-13 items-center justify-center rounded-xl"
-                  style={{ backgroundColor: "white" }}
-                >
-                  <BadgeEuro className="h-6 w-6" style={{ color: TEAL }} />
-                </div>
-                <h2
-                  className="mb-4 text-3xl font-bold tracking-tight md:text-4xl"
-                  style={{ color: NAVY }}
-                >
-                  Staatliche Förderungen nutzen
-                </h2>
-                <p className="mx-auto max-w-2xl text-slate-500">
-                  Sparen Sie bis zu 40% der Investitionskosten durch staatliche
-                  Förderprogramme.
-                </p>
-              </div>
-
-              <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
-                {foerderungen.map((item, i) => (
-                  <motion.div
-                    key={item.label}
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.5, delay: i * 0.1 }}
-                    className="rounded-xl bg-white p-6 text-center shadow-sm"
-                  >
-                    <div
-                      className="mb-2 text-3xl font-bold"
-                      style={{ color: TEAL }}
-                    >
-                      {item.value}
-                    </div>
-                    <div className="text-sm text-slate-500">{item.label}</div>
-                  </motion.div>
-                ))}
-              </div>
-
-              <div className="mt-10 text-center">
-                <p className="mb-5 text-slate-500">
-                  Wir unterstützen Sie bei der Beantragung aller verfügbaren
-                  Fördermittel.
-                </p>
-                <Link
-                  href="/kontakt"
-                  className="inline-flex items-center gap-2 rounded-lg px-6 py-3 text-sm font-semibold text-white shadow-lg transition-all hover:shadow-xl hover:brightness-110"
-                  style={{
-                    backgroundColor: TEAL,
-                    boxShadow: "0 10px 30px -5px rgba(0,151,167,0.3)",
-                  }}
-                >
-                  Fördermittelberatung anfordern
-                  <ArrowRight className="h-4 w-4" />
-                </Link>
-              </div>
-            </div>
-          </motion.div>
-        </div>
-      </section>
-
       {/* ── CTA ── */}
-      <section
-        className="relative overflow-hidden"
-        style={{ backgroundColor: NAVY }}
-      >
-        {/* Geometric bg pattern */}
+      <section className="relative overflow-hidden border-t border-border bg-white py-20 md:py-24">
         <div
-          className="absolute inset-0 opacity-[0.05]"
+          className="absolute inset-0 opacity-[0.035]"
           style={{
-            backgroundImage: `
-              linear-gradient(30deg, ${TEAL} 12%, transparent 12.5%, transparent 87%, ${TEAL} 87.5%, ${TEAL}),
-              linear-gradient(150deg, ${TEAL} 12%, transparent 12.5%, transparent 87%, ${TEAL} 87.5%, ${TEAL}),
-              linear-gradient(30deg, ${TEAL} 12%, transparent 12.5%, transparent 87%, ${TEAL} 87.5%, ${TEAL}),
-              linear-gradient(150deg, ${TEAL} 12%, transparent 12.5%, transparent 87%, ${TEAL} 87.5%, ${TEAL}),
-              linear-gradient(60deg, rgba(0,151,167,0.3) 25%, transparent 25.5%, transparent 75%, rgba(0,151,167,0.3) 75%, rgba(0,151,167,0.3)),
-              linear-gradient(60deg, rgba(0,151,167,0.3) 25%, transparent 25.5%, transparent 75%, rgba(0,151,167,0.3) 75%, rgba(0,151,167,0.3))
-            `,
-            backgroundSize: "80px 140px",
-            backgroundPosition:
-              "0 0, 0 0, 40px 70px, 40px 70px, 0 0, 40px 70px",
+            backgroundImage: `radial-gradient(circle, var(--primary) 1.2px, transparent 1.2px)`,
+            backgroundSize: "32px 32px",
           }}
         />
+        <div className="pointer-events-none absolute -top-32 left-1/2 h-64 w-[600px] -translate-x-1/2 rounded-full bg-primary/5 blur-3xl" />
 
-        <div className="relative mx-auto max-w-7xl px-6 py-20 md:py-28">
+        <div className="relative mx-auto max-w-4xl px-6 text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="mx-auto max-w-2xl text-center"
           >
-            <span
-              className="mb-3 inline-block text-sm font-semibold tracking-wider uppercase"
-              style={{ color: TEAL_LIGHT }}
-            >
-              Jetzt starten
+            <span className="mb-4 inline-block text-sm font-semibold tracking-wider text-primary uppercase">
+              Kontakt
             </span>
-            <h2 className="mb-4 text-3xl font-bold tracking-tight text-white md:text-4xl">
-              Neue Heizung geplant?
+            <h2 className="mb-4 text-3xl font-bold tracking-tight text-foreground md:text-4xl">
+              Lassen Sie uns über Ihr Projekt sprechen
             </h2>
-            <p className="mx-auto mb-8 max-w-2xl text-lg leading-relaxed text-slate-300">
-              Lassen Sie sich von unseren Heizungsexperten beraten. Wir finden
-              die optimale Lösung für Ihr Zuhause.
+            <p className="mx-auto mb-10 max-w-2xl text-lg text-muted-foreground">
+              Sie möchten Ihre Baustelle effizient und strukturiert aufsetzen?
+              Sprechen Sie uns an — wir unterstützen Sie von der Planung bis zur
+              Umsetzung.
             </p>
-            <div className="flex flex-col justify-center gap-3 sm:flex-row">
+            <div className="flex flex-wrap justify-center gap-4">
               <Link
                 href="/kontakt"
-                className="inline-flex items-center justify-center gap-2 rounded-lg px-6 py-3 text-sm font-semibold text-white shadow-lg transition-all hover:shadow-xl hover:brightness-110"
-                style={{
-                  backgroundColor: TEAL,
-                  boxShadow: "0 10px 30px -5px rgba(0,151,167,0.3)",
-                }}
+                className="inline-flex items-center gap-2 rounded-lg bg-primary px-7 py-3.5 text-sm font-semibold text-white shadow-lg shadow-primary/25 transition-all hover:shadow-xl hover:brightness-110"
               >
-                Kostenlose Beratung
+                Kostenlose Beratung anfragen
                 <ArrowRight className="h-4 w-4" />
               </Link>
-              <Link
-                href="tel:+491234567890"
-                className="inline-flex items-center justify-center gap-2 rounded-lg border border-white/15 px-6 py-3 text-sm font-semibold text-white/80 transition-all hover:border-white/30 hover:bg-white/5 hover:text-white"
+              <a
+                href="tel:+4922389356034"
+                className="inline-flex items-center gap-2 rounded-lg border border-border px-7 py-3.5 text-sm font-semibold text-foreground transition-all hover:border-primary/30 hover:bg-primary/5"
               >
-                <Phone className="h-4 w-4" />
-                Notdienst anrufen
-              </Link>
+                <Phone className="h-4 w-4 text-primary" />
+                +49 (0) 2238 9356034
+              </a>
             </div>
           </motion.div>
         </div>

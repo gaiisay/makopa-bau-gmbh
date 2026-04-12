@@ -4,126 +4,113 @@ import Link from "next/link";
 import { motion } from "motion/react";
 import {
   TreePine,
-  Sprout,
-  Mountain,
-  Leaf,
-  CheckCircle2,
+  Shovel,
+  Droplets,
+  LayoutGrid,
+  MapPin,
+  Layers,
+  RotateCcw,
   Phone,
   ArrowRight,
-  Hammer,
-  Flower2,
+  CheckCircle2,
 } from "lucide-react";
 
 /* ─── Colors ──────────────────────────────────────────────────── */
-const NAVY = "#0C2340";
-const NAVY_LIGHT = "#143054";
+const NAVY = "#1A3A63";
+const NAVY_LIGHT = "#224B7A";
 const TEAL = "#0097A7";
-const TEAL_LIGHT = "#00ACC1";
-const TEAL_PALE = "#E0F7FA";
-const OFF_WHITE = "#F8FAFC";
 
 /* ─── Data ────────────────────────────────────────────────────── */
 
 const services = [
   {
-    title: "Gartengestaltung",
-    icon: Flower2,
+    title: "Erdarbeiten & Baugruben",
+    icon: Shovel,
     description:
-      "Individuelle Planung und Gestaltung von privaten und öffentlichen Grünanlagen.",
+      "Wir schaffen die Grundlage für Ihr Bauvorhaben.",
     features: [
-      "Gartenplanung",
-      "Bepflanzung",
-      "Bewässerungssysteme",
-      "Gartenpflege",
+      "Fachgerechter Aushub von Baugruben und Gräben",
+      "Herstellung von tragfähigem Planum",
+      "Verfüllung und Verdichtung nach technischen Vorgaben",
+      "Umgang mit Bodenmaterialien inkl. Wiederverwendung & Entsorgung",
     ],
   },
   {
-    title: "Pflasterarbeiten",
-    icon: Hammer,
+    title: "Grundstücksentwässerung & Kanalanschlüsse",
+    icon: Droplets,
     description:
-      "Professionelle Verlegung von Pflastersteinen, Platten und Natursteinen.",
+      "Sichere und normgerechte Entwässerung für Ihr Grundstück.",
     features: [
-      "Wegebau",
-      "Terrassengestaltung",
-      "Einfahrten",
-      "Plätze und Höfe",
+      "Verlegung von Regen- und Abwasserleitungen",
+      "Herstellung von Hausanschlüssen auf dem Baugrundstück",
+      "Einbau von Kontroll- und Revisionsschächten",
+      "Abstimmung mit Versorgern und Umsetzung gemäß Vorgaben",
     ],
   },
   {
-    title: "Landschaftsbau",
-    icon: Mountain,
+    title: "Bauliche Erschließung von Grundstücken",
+    icon: MapPin,
     description:
-      "Umfassende Landschaftsgestaltung für Wohn- und Gewerbegebiete.",
-    features: ["Erdarbeiten", "Drainage", "Böschungsbau", "Rekultivierung"],
-  },
-];
-
-const projects = [
-  {
-    title: "Privatgärten",
-    description: "Traumgärten für Einfamilienhäuser und Villen",
-    emoji: "🏡",
+      "Wir machen Ihr Grundstück baureif.",
+    features: [
+      "Herstellung von Baustraßen und Zufahrten",
+      "Vorbereitung von Leitungsführungen",
+      "Geländeprofilierung und Flächenaufbau",
+      "Schaffung aller Voraussetzungen für den Bauablauf",
+    ],
   },
   {
-    title: "Gewerbeanlagen",
-    description: "Repräsentative Außenanlagen für Unternehmen",
-    emoji: "🏢",
+    title: "Tragschichten & Unterbau",
+    icon: Layers,
+    description:
+      "Die Basis für langlebige Außenflächen.",
+    features: [
+      "Einbau von Frostschutz- und Tragschichten",
+      "Herstellung von Bettungen für Pflaster und Platten",
+      "Profilgerechte Verdichtung nach Normen und Vorgaben",
+    ],
   },
   {
-    title: "Öffentliche Bereiche",
-    description: "Parks, Spielplätze und Grünanlagen",
-    emoji: "🌳",
+    title: "Pflasterarbeiten & Außenflächen",
+    icon: LayoutGrid,
+    description:
+      "Funktionalität trifft auf saubere Optik.",
+    features: [
+      "Pflaster- und Plattenarbeiten (Beton, Naturstein, Keramik)",
+      "Herstellung von Einfahrten, Wegen und Terrassen",
+      "Einfassungen mit Bord- und Kantensteinen",
+      "Stellplätze und Sonderflächen (z. B. Rasenwaben)",
+    ],
   },
   {
-    title: "Sportstätten",
-    description: "Rasenplätze und Sportanlagen",
-    emoji: "⚽",
+    title: "Wiederherstellung & Anpassungsarbeiten",
+    icon: RotateCcw,
+    description:
+      "Wir bringen alles wieder in Form.",
+    features: [
+      "Wiederherstellung bestehender Flächen",
+      "Anpassung an vorhandene Höhen und Übergänge",
+      "Saubere Einbindung in den Bestand",
+    ],
   },
 ];
 
 const advantages = [
   {
-    icon: Leaf,
-    title: "Nachhaltigkeit",
-    description: "Umweltfreundliche und nachhaltige Lösungen",
+    title: "Ganzheitliche Umsetzung",
+    description: "Statt Schnittstellenchaos — alles aus einer Hand.",
   },
   {
-    icon: TreePine,
-    title: "Fachkompetenz",
-    description: "Jahrelange Erfahrung im Garten- und Landschaftsbau",
+    title: "Technisch saubere Ausführung",
+    description: "Normgerecht und nach aktuellen Standards.",
   },
   {
-    icon: Sprout,
-    title: "Ganzjährige Betreuung",
-    description: "Von der Planung bis zur Pflege aus einer Hand",
+    title: "Praxiserprobte Lösungen",
+    description: "Direkt aus dem Baualltag, verlässlich und effizient.",
   },
   {
-    icon: Mountain,
-    title: "Individuelle Lösungen",
-    description: "Maßgeschneiderte Konzepte für jeden Anspruch",
-  },
-];
-
-const processSteps = [
-  {
-    step: "01",
-    title: "Beratung",
-    description: "Persönliche Beratung und Besichtigung vor Ort",
-  },
-  {
-    step: "02",
-    title: "Planung",
-    description: "Detaillierte Planung und 3D-Visualisierung",
-  },
-  {
-    step: "03",
-    title: "Realisierung",
-    description: "Professionelle Umsetzung durch Fachkräfte",
-  },
-  {
-    step: "04",
-    title: "Pflege",
-    description: "Langfristige Betreuung und Pflege",
+    title: "Zusammenarbeit auf Augenhöhe",
+    description: "Partnerschaftlich, transparent und verbindlich.",
   },
 ];
 
@@ -131,31 +118,12 @@ const processSteps = [
 
 export default function GalaBauPage() {
   return (
-    <main className="min-h-screen bg-white">
+    <main>
       {/* ── Hero ── */}
       <section
         className="relative overflow-hidden"
         style={{ backgroundColor: NAVY }}
       >
-        {/* Geometric bg pattern */}
-        <div
-          className="absolute inset-0 opacity-[0.07]"
-          style={{
-            backgroundImage: `
-              linear-gradient(30deg, ${TEAL} 12%, transparent 12.5%, transparent 87%, ${TEAL} 87.5%, ${TEAL}),
-              linear-gradient(150deg, ${TEAL} 12%, transparent 12.5%, transparent 87%, ${TEAL} 87.5%, ${TEAL}),
-              linear-gradient(30deg, ${TEAL} 12%, transparent 12.5%, transparent 87%, ${TEAL} 87.5%, ${TEAL}),
-              linear-gradient(150deg, ${TEAL} 12%, transparent 12.5%, transparent 87%, ${TEAL} 87.5%, ${TEAL}),
-              linear-gradient(60deg, rgba(0,151,167,0.3) 25%, transparent 25.5%, transparent 75%, rgba(0,151,167,0.3) 75%, rgba(0,151,167,0.3)),
-              linear-gradient(60deg, rgba(0,151,167,0.3) 25%, transparent 25.5%, transparent 75%, rgba(0,151,167,0.3) 75%, rgba(0,151,167,0.3))
-            `,
-            backgroundSize: "80px 140px",
-            backgroundPosition:
-              "0 0, 0 0, 40px 70px, 40px 70px, 0 0, 40px 70px",
-          }}
-        />
-
-        {/* Gradient overlay */}
         <div
           className="absolute inset-0"
           style={{
@@ -164,61 +132,53 @@ export default function GalaBauPage() {
           }}
         />
 
-        <div className="relative mx-auto max-w-7xl px-6 py-20 md:py-28 lg:py-36">
-          <div className="mx-auto max-w-3xl text-center">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-              className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-1.5 backdrop-blur-sm"
-            >
-              <TreePine className="h-4 w-4" style={{ color: TEAL_LIGHT }} />
-              <span className="text-xs font-medium text-white/70">
-                Garten- & Landschaftsbau
-              </span>
-            </motion.div>
-
+        <div className="relative mx-auto max-w-5xl px-6 py-20 md:py-24">
+          <div className="flex flex-col items-center text-center">
             <motion.h1
               initial={{ opacity: 0, y: 25 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.1 }}
-              className="mb-6 text-4xl leading-[1.1] font-bold tracking-tight text-white sm:text-5xl lg:text-[3.5rem]"
+              className="mb-6 text-4xl leading-[1.08] font-bold tracking-tight text-white sm:text-5xl lg:text-6xl"
             >
-              Gala Bau{" "}
-              <span style={{ color: TEAL_LIGHT }}>für grüne Visionen.</span>
+              Erdarbeiten & Außenanlagen
             </motion.h1>
 
             <motion.p
               initial={{ opacity: 0, y: 25 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="mx-auto mb-8 max-w-2xl text-lg leading-relaxed text-slate-300"
+              transition={{ duration: 0.6, delay: 0.15 }}
+              className="mb-4 text-lg font-semibold text-primary sm:text-xl"
             >
-              Professionelle Gestaltung und Pflege von Außenanlagen, Gärten und
-              öffentlichen Bereichen. Wir verwandeln Ihre Visionen in grüne
-              Realität.
+              Ganzheitliche Lösungen für Ihr Bauprojekt
+            </motion.p>
+
+            <motion.p
+              initial={{ opacity: 0, y: 25 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="mb-10 max-w-2xl text-lg leading-relaxed text-slate-300"
+            >
+              Ob Neubau, Umgestaltung oder Erschließung — wir realisieren Ihre
+              Außenanlagen und Erdarbeiten strukturiert, zuverlässig und
+              technisch durchdacht. Von der Baugrube bis zur fertigen Oberfläche.
             </motion.p>
 
             <motion.div
               initial={{ opacity: 0, y: 25 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
-              className="flex flex-wrap justify-center gap-3"
+              className="flex flex-wrap justify-center gap-4"
             >
               <Link
                 href="/kontakt"
-                className="inline-flex items-center gap-2 rounded-lg px-6 py-3 text-sm font-semibold text-white shadow-lg transition-all hover:shadow-xl hover:brightness-110"
-                style={{
-                  backgroundColor: TEAL,
-                  boxShadow: "0 10px 30px -5px rgba(0,151,167,0.3)",
-                }}
+                className="inline-flex items-center gap-2 rounded-lg bg-primary px-7 py-3.5 text-sm font-semibold text-white shadow-lg shadow-primary/30 transition-all hover:shadow-xl hover:brightness-110"
               >
-                Gartenplanung anfragen
+                Projekt anfragen
                 <ArrowRight className="h-4 w-4" />
               </Link>
               <Link
-                href="#dienstleistungen"
-                className="inline-flex items-center gap-2 rounded-lg border border-white/15 px-6 py-3 text-sm font-semibold text-white/80 transition-all hover:border-white/30 hover:bg-white/5 hover:text-white"
+                href="#leistungen"
+                className="inline-flex items-center gap-2 rounded-lg border border-white/15 px-7 py-3.5 text-sm font-semibold text-white/80 transition-all hover:border-white/30 hover:bg-white/5 hover:text-white"
               >
                 Unsere Leistungen
               </Link>
@@ -228,11 +188,7 @@ export default function GalaBauPage() {
       </section>
 
       {/* ── Services ── */}
-      <section
-        id="dienstleistungen"
-        className="py-20 md:py-28"
-        style={{ backgroundColor: OFF_WHITE }}
-      >
+      <section id="leistungen" className="bg-white py-20 md:py-24">
         <div className="mx-auto max-w-7xl px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -240,25 +196,16 @@ export default function GalaBauPage() {
             viewport={{ once: true }}
             className="mb-16 text-center"
           >
-            <span
-              className="mb-3 inline-block text-sm font-semibold tracking-wider uppercase"
-              style={{ color: TEAL }}
-            >
-              Dienstleistungen
-            </span>
-            <h2
-              className="mb-4 text-3xl font-bold tracking-tight md:text-4xl"
-              style={{ color: NAVY }}
-            >
-              Unsere Gala Bau Leistungen
+            <h2 className="mb-4 text-3xl font-bold tracking-tight text-foreground md:text-4xl">
+              Unsere Leistungen im Überblick
             </h2>
-            <p className="mx-auto max-w-2xl text-slate-500">
-              Von der ersten Planung bis zur laufenden Pflege — wir gestalten
-              Ihre Außenanlagen professionell.
+            <p className="mx-auto max-w-2xl text-muted-foreground">
+              Von der Baugrube bis zur fertigen Oberfläche — alle Leistungen aus
+              einer Hand, abgestimmt auf Ihr Projekt.
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
+          <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
             {services.map((service, i) => {
               const Icon = service.icon;
               return (
@@ -267,40 +214,27 @@ export default function GalaBauPage() {
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: i * 0.1 }}
-                  className="relative h-full overflow-hidden rounded-xl border border-slate-200/80 bg-white p-7 transition-all hover:shadow-xl hover:shadow-slate-200/50"
+                  transition={{ duration: 0.5, delay: i * 0.08 }}
+                  className="group relative flex h-full flex-col overflow-hidden rounded-xl border border-border bg-white p-6 transition-all hover:border-slate-300 hover:shadow-xl hover:shadow-slate-200/50"
                 >
-                  {/* Top accent line */}
-                  <div
-                    className="absolute top-0 right-0 left-0 h-1"
-                    style={{ backgroundColor: TEAL }}
-                  />
-                  <div
-                    className="mb-5 flex h-13 w-13 items-center justify-center rounded-xl"
-                    style={{ backgroundColor: TEAL_PALE }}
-                  >
-                    <Icon className="h-6 w-6" style={{ color: TEAL }} />
+                  <div className="absolute top-0 right-0 left-0 h-1 bg-primary transition-all group-hover:h-1.5" />
+                  <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10">
+                    <Icon className="h-6 w-6 text-primary" />
                   </div>
-                  <h3
-                    className="mb-2 text-lg font-bold"
-                    style={{ color: NAVY }}
-                  >
+                  <h3 className="mb-1.5 text-base font-bold text-foreground">
                     {service.title}
                   </h3>
-                  <p className="mb-5 text-sm leading-relaxed text-slate-500">
+                  <p className="mb-4 text-sm leading-relaxed text-muted-foreground">
                     {service.description}
                   </p>
-                  <ul className="space-y-2.5">
+                  <ul className="mt-auto space-y-2">
                     {service.features.map((feature) => (
                       <li
                         key={feature}
-                        className="flex items-center gap-2 text-sm"
+                        className="flex items-start gap-2 text-xs text-slate-500"
                       >
-                        <CheckCircle2
-                          className="h-4 w-4 flex-shrink-0"
-                          style={{ color: TEAL }}
-                        />
-                        <span className="text-slate-600">{feature}</span>
+                        <CheckCircle2 className="mt-0.5 h-3.5 w-3.5 shrink-0 text-primary" />
+                        <span>{feature}</span>
                       </li>
                     ))}
                   </ul>
@@ -311,170 +245,52 @@ export default function GalaBauPage() {
         </div>
       </section>
 
-      {/* ── Project Types ── */}
-      <section className="bg-white py-20 md:py-28">
-        <div className="mx-auto max-w-7xl px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="mb-16 text-center"
-          >
-            <span
-              className="mb-3 inline-block text-sm font-semibold tracking-wider uppercase"
-              style={{ color: TEAL }}
-            >
-              Projekte
-            </span>
-            <h2
-              className="mb-4 text-3xl font-bold tracking-tight md:text-4xl"
-              style={{ color: NAVY }}
-            >
-              Unsere Projekte
-            </h2>
-            <p className="mx-auto max-w-2xl text-slate-500">
-              Wir realisieren Gala Bau Projekte für verschiedenste Bereiche und
-              Anforderungen.
-            </p>
-          </motion.div>
-
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
-            {projects.map((project, i) => (
-              <motion.div
-                key={project.title}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: i * 0.1 }}
-                className="relative overflow-hidden rounded-xl border border-slate-200/80 bg-white p-7 text-center transition-all hover:shadow-xl hover:shadow-slate-200/50"
-              >
-                <div
-                  className="absolute top-0 right-0 left-0 h-1"
-                  style={{ backgroundColor: TEAL }}
-                />
-                <div className="mb-4 text-4xl">{project.emoji}</div>
-                <h3 className="mb-2 text-lg font-bold" style={{ color: NAVY }}>
-                  {project.title}
-                </h3>
-                <p className="text-sm leading-relaxed text-slate-500">
-                  {project.description}
-                </p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── Advantages ── */}
+      {/* ── Warum Makopa ── */}
       <section
-        className="py-20 md:py-28"
-        style={{ backgroundColor: OFF_WHITE }}
+        className="relative overflow-hidden py-20"
+        style={{ backgroundColor: NAVY }}
       >
-        <div className="mx-auto max-w-7xl px-6">
+        <div
+          className="pointer-events-none absolute top-1/2 left-1/2 h-[700px] w-[900px] -translate-x-1/2 -translate-y-1/2 rounded-full opacity-[0.07]"
+          style={{
+            background: `radial-gradient(ellipse, ${TEAL} 0%, transparent 70%)`,
+          }}
+        />
+        <div className="relative mx-auto max-w-7xl px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="mb-16 text-center"
+            transition={{ duration: 0.6 }}
+            className="mb-12"
           >
-            <span
-              className="mb-3 inline-block text-sm font-semibold tracking-wider uppercase"
-              style={{ color: TEAL }}
-            >
-              Stärken
-            </span>
-            <h2
-              className="mb-4 text-3xl font-bold tracking-tight md:text-4xl"
-              style={{ color: NAVY }}
-            >
-              Unsere Stärken
+            <h2 className="mb-3 text-sm font-semibold tracking-wider text-primary uppercase">
+              Unser Anspruch
             </h2>
-            <p className="mx-auto max-w-2xl text-slate-500">
-              Was uns zu Ihrem idealen Partner für Garten- und Landschaftsbau
-              macht.
+            <p className="max-w-2xl text-2xl font-bold text-white md:text-3xl">
+              Bauen mit System.
+            </p>
+            <p className="mt-4 max-w-2xl leading-relaxed text-slate-300">
+              Wir arbeiten marktorientiert, kompetent und partnerschaftlich — mit
+              einem klaren Fokus auf Qualität und nachhaltige Lösungen. Dabei
+              behalten wir stets das Gesamtbild im Blick.
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
-            {advantages.map((advantage, i) => {
-              const Icon = advantage.icon;
-              return (
-                <motion.div
-                  key={advantage.title}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: i * 0.1 }}
-                  className="text-center"
-                >
-                  <div
-                    className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-xl"
-                    style={{ backgroundColor: TEAL_PALE }}
-                  >
-                    <Icon className="h-6 w-6" style={{ color: TEAL }} />
-                  </div>
-                  <h3
-                    className="mb-2 text-lg font-bold"
-                    style={{ color: NAVY }}
-                  >
-                    {advantage.title}
-                  </h3>
-                  <p className="text-sm leading-relaxed text-slate-500">
-                    {advantage.description}
-                  </p>
-                </motion.div>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-
-      {/* ── Process ── */}
-      <section className="bg-white py-20 md:py-28">
-        <div className="mx-auto max-w-7xl px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="mb-16 text-center"
-          >
-            <span
-              className="mb-3 inline-block text-sm font-semibold tracking-wider uppercase"
-              style={{ color: TEAL }}
-            >
-              Ablauf
-            </span>
-            <h2
-              className="mb-4 text-3xl font-bold tracking-tight md:text-4xl"
-              style={{ color: NAVY }}
-            >
-              Von der Idee zur grünen Oase
-            </h2>
-            <p className="mx-auto max-w-2xl text-slate-500">
-              So realisieren wir Ihr Garten- und Landschaftsbauprojekt.
-            </p>
-          </motion.div>
-
-          <div className="grid grid-cols-1 gap-8 md:grid-cols-4">
-            {processSteps.map((item, i) => (
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+            {advantages.map((item, i) => (
               <motion.div
-                key={item.step}
-                initial={{ opacity: 0, y: 20 }}
+                key={item.title}
+                initial={{ opacity: 0, y: 25 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: i * 0.1 }}
-                className="text-center"
+                className="rounded-xl border border-white/10 bg-white/5 p-6"
               >
-                <div
-                  className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full text-xl font-bold text-white"
-                  style={{ backgroundColor: TEAL }}
-                >
-                  {item.step}
-                </div>
-                <h3 className="mb-2 text-lg font-bold" style={{ color: NAVY }}>
+                <h3 className="mb-2 text-lg font-bold text-white">
                   {item.title}
                 </h3>
-                <p className="text-sm leading-relaxed text-slate-500">
+                <p className="text-sm leading-relaxed text-slate-300">
                   {item.description}
                 </p>
               </motion.div>
@@ -484,67 +300,48 @@ export default function GalaBauPage() {
       </section>
 
       {/* ── CTA ── */}
-      <section
-        className="relative overflow-hidden"
-        style={{ backgroundColor: NAVY }}
-      >
-        {/* Geometric bg pattern */}
+      <section className="relative overflow-hidden border-t border-border bg-white py-20 md:py-24">
         <div
-          className="absolute inset-0 opacity-[0.05]"
+          className="absolute inset-0 opacity-[0.035]"
           style={{
-            backgroundImage: `
-              linear-gradient(30deg, ${TEAL} 12%, transparent 12.5%, transparent 87%, ${TEAL} 87.5%, ${TEAL}),
-              linear-gradient(150deg, ${TEAL} 12%, transparent 12.5%, transparent 87%, ${TEAL} 87.5%, ${TEAL}),
-              linear-gradient(30deg, ${TEAL} 12%, transparent 12.5%, transparent 87%, ${TEAL} 87.5%, ${TEAL}),
-              linear-gradient(150deg, ${TEAL} 12%, transparent 12.5%, transparent 87%, ${TEAL} 87.5%, ${TEAL}),
-              linear-gradient(60deg, rgba(0,151,167,0.3) 25%, transparent 25.5%, transparent 75%, rgba(0,151,167,0.3) 75%, rgba(0,151,167,0.3)),
-              linear-gradient(60deg, rgba(0,151,167,0.3) 25%, transparent 25.5%, transparent 75%, rgba(0,151,167,0.3) 75%, rgba(0,151,167,0.3))
-            `,
-            backgroundSize: "80px 140px",
-            backgroundPosition:
-              "0 0, 0 0, 40px 70px, 40px 70px, 0 0, 40px 70px",
+            backgroundImage: `radial-gradient(circle, var(--primary) 1.2px, transparent 1.2px)`,
+            backgroundSize: "32px 32px",
           }}
         />
+        <div className="pointer-events-none absolute -top-32 left-1/2 h-64 w-[600px] -translate-x-1/2 rounded-full bg-primary/5 blur-3xl" />
 
-        <div className="relative mx-auto max-w-7xl px-6 py-20 md:py-28">
+        <div className="relative mx-auto max-w-4xl px-6 text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="mx-auto max-w-2xl text-center"
           >
-            <span
-              className="mb-3 inline-block text-sm font-semibold tracking-wider uppercase"
-              style={{ color: TEAL_LIGHT }}
-            >
-              Jetzt starten
+            <span className="mb-4 inline-block text-sm font-semibold tracking-wider text-primary uppercase">
+              Kontakt
             </span>
-            <h2 className="mb-4 text-3xl font-bold tracking-tight text-white md:text-4xl">
-              Bereit für Ihr Garten-Projekt?
+            <h2 className="mb-4 text-3xl font-bold tracking-tight text-foreground md:text-4xl">
+              Lassen Sie uns über Ihr Projekt sprechen
             </h2>
-            <p className="mx-auto mb-8 max-w-2xl text-lg leading-relaxed text-slate-300">
-              Lassen Sie uns gemeinsam Ihren Traum-Garten planen und
-              realisieren. Wir beraten Sie gerne kostenlos und unverbindlich.
+            <p className="mx-auto mb-10 max-w-2xl text-lg text-muted-foreground">
+              Sie planen ein Bauvorhaben oder möchten Ihre Außenanlagen
+              neugestalten? Sprechen Sie uns an — wir begleiten Ihr Projekt von
+              Anfang an.
             </p>
-            <div className="flex flex-col justify-center gap-3 sm:flex-row">
+            <div className="flex flex-wrap justify-center gap-4">
               <Link
                 href="/kontakt"
-                className="inline-flex items-center justify-center gap-2 rounded-lg px-6 py-3 text-sm font-semibold text-white shadow-lg transition-all hover:shadow-xl hover:brightness-110"
-                style={{
-                  backgroundColor: TEAL,
-                  boxShadow: "0 10px 30px -5px rgba(0,151,167,0.3)",
-                }}
+                className="inline-flex items-center gap-2 rounded-lg bg-primary px-7 py-3.5 text-sm font-semibold text-white shadow-lg shadow-primary/25 transition-all hover:shadow-xl hover:brightness-110"
               >
-                Kostenlose Beratung
+                Kostenlose Beratung anfragen
                 <ArrowRight className="h-4 w-4" />
               </Link>
-              <Link
-                href="tel:+491234567890"
-                className="inline-flex items-center justify-center gap-2 rounded-lg border border-white/15 px-6 py-3 text-sm font-semibold text-white/80 transition-all hover:border-white/30 hover:bg-white/5 hover:text-white"
+              <a
+                href="tel:+4922389356034"
+                className="inline-flex items-center gap-2 rounded-lg border border-border px-7 py-3.5 text-sm font-semibold text-foreground transition-all hover:border-primary/30 hover:bg-primary/5"
               >
-                <Phone className="h-4 w-4" />
-                Direkt anrufen
-              </Link>
+                <Phone className="h-4 w-4 text-primary" />
+                +49 (0) 2238 9356034
+              </a>
             </div>
           </motion.div>
         </div>

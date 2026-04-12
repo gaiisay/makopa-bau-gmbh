@@ -42,7 +42,7 @@ export function Navigation() {
         <div className="mx-auto flex h-9 max-w-7xl items-center justify-between px-6 text-xs">
           <div className="flex items-center gap-6">
             <a
-              href="tel:+49123456789"
+              href="tel:+4922389356034"
               className="flex items-center gap-1.5 transition-colors hover:text-white"
             >
               <Phone className="h-3 w-3" />

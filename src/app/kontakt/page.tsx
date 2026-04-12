@@ -9,19 +9,15 @@ import {
   Mail,
   Clock,
   Send,
-  MessageSquare,
-  Building,
-  User,
   ArrowRight,
+  CheckCircle2,
+  Building,
 } from "lucide-react";
 
 /* ─── Colors ──────────────────────────────────────────────────── */
-const NAVY = "#0C2340";
-const NAVY_LIGHT = "#143054";
+const NAVY = "#1A3A63";
+const NAVY_LIGHT = "#224B7A";
 const TEAL = "#0097A7";
-const TEAL_LIGHT = "#00ACC1";
-const TEAL_PALE = "#E0F7FA";
-const OFF_WHITE = "#F8FAFC";
 
 /* ─── Data ────────────────────────────────────────────────────── */
 
@@ -29,65 +25,36 @@ const contactInfo = [
   {
     icon: Phone,
     title: "Telefon",
-    content: "+49 (0) 123 456789",
-    action: "tel:+491234567890",
+    content: "+49 (0) 2238 9356034",
+    action: "tel:+4922389356034",
     linkLabel: "Jetzt anrufen",
   },
   {
     icon: Mail,
     title: "E-Mail",
-    content: "info@makopa-bau.de",
-    action: "mailto:info@makopa-bau.de",
+    content: "kontakt@makopa-bau.de",
+    action: "mailto:kontakt@makopa-bau.de",
     linkLabel: "E-Mail senden",
   },
   {
     icon: MapPin,
     title: "Adresse",
-    content: "Musterstraße 123\n12345 Musterstadt",
-    action: "https://maps.google.com",
+    content: "Wolfhelmstr. 36\n50259 Pulheim",
+    action: "https://maps.google.com/?q=Wolfhelmstr.+36,+50259+Pulheim",
     linkLabel: "Route planen",
   },
 ];
 
 const businessHours = [
-  { day: "Montag - Freitag", hours: "07:00 - 17:00" },
-  { day: "Samstag", hours: "08:00 - 14:00" },
-  { day: "Sonntag", hours: "Geschlossen" },
-  { day: "Notdienst", hours: "24/7 verfügbar" },
-];
-
-const quickContacts = [
-  {
-    icon: Phone,
-    title: "Telefonische Beratung",
-    description: "Sprechen Sie direkt mit unseren Experten",
-    href: "tel:+491234567890",
-    label: "Jetzt anrufen",
-    primary: true,
-  },
-  {
-    icon: Mail,
-    title: "E-Mail Anfrage",
-    description: "Senden Sie uns Ihre detaillierte Anfrage",
-    href: "mailto:info@makopa-bau.de",
-    label: "E-Mail schreiben",
-    primary: false,
-  },
-  {
-    icon: Building,
-    title: "Vor-Ort Besichtigung",
-    description: "Vereinbaren Sie einen Termin bei Ihnen",
-    href: "#form",
-    label: "Termin vereinbaren",
-    primary: false,
-  },
+  { day: "Mittwoch", hours: "14:00 – 17:00" },
+  { day: "Freitag", hours: "09:00 – 15:30" },
 ];
 
 const serviceOptions = [
-  "Logistik",
-  "Gala Bau",
-  "Heizung",
-  "Abbruch & Umbau",
+  "Baustellenmanagement",
+  "Erdarbeiten & Außenanlagen",
+  "Abbruch & Speziallösungen",
+  "Baustellenservices & Vermietung",
   "Allgemeine Anfrage",
 ];
 
@@ -138,34 +105,15 @@ export default function KontaktPage() {
   };
 
   const inputClasses =
-    "w-full rounded-lg border border-slate-200 px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[#0097A7]/30 focus:border-[#0097A7] transition-colors";
+    "w-full rounded-lg border border-border px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-colors";
 
   return (
-    <main className="min-h-screen bg-white">
+    <main>
       {/* ── Hero ── */}
       <section
         className="relative overflow-hidden"
         style={{ backgroundColor: NAVY }}
       >
-        {/* Geometric bg pattern */}
-        <div
-          className="absolute inset-0 opacity-[0.07]"
-          style={{
-            backgroundImage: `
-              linear-gradient(30deg, ${TEAL} 12%, transparent 12.5%, transparent 87%, ${TEAL} 87.5%, ${TEAL}),
-              linear-gradient(150deg, ${TEAL} 12%, transparent 12.5%, transparent 87%, ${TEAL} 87.5%, ${TEAL}),
-              linear-gradient(30deg, ${TEAL} 12%, transparent 12.5%, transparent 87%, ${TEAL} 87.5%, ${TEAL}),
-              linear-gradient(150deg, ${TEAL} 12%, transparent 12.5%, transparent 87%, ${TEAL} 87.5%, ${TEAL}),
-              linear-gradient(60deg, rgba(0,151,167,0.3) 25%, transparent 25.5%, transparent 75%, rgba(0,151,167,0.3) 75%, rgba(0,151,167,0.3)),
-              linear-gradient(60deg, rgba(0,151,167,0.3) 25%, transparent 25.5%, transparent 75%, rgba(0,151,167,0.3) 75%, rgba(0,151,167,0.3))
-            `,
-            backgroundSize: "80px 140px",
-            backgroundPosition:
-              "0 0, 0 0, 40px 70px, 40px 70px, 0 0, 40px 70px",
-          }}
-        />
-
-        {/* Gradient overlay */}
         <div
           className="absolute inset-0"
           style={{
@@ -174,77 +122,63 @@ export default function KontaktPage() {
           }}
         />
 
-        <div className="relative mx-auto max-w-7xl px-6 py-20 md:py-28 lg:py-36">
-          <div className="mx-auto max-w-3xl text-center">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-              className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-1.5 backdrop-blur-sm"
-            >
-              <MessageSquare
-                className="h-4 w-4"
-                style={{ color: TEAL_LIGHT }}
-              />
-              <span className="text-xs font-medium text-white/70">
-                Kontakt & Anfragen
-              </span>
-            </motion.div>
-
+        <div className="relative mx-auto max-w-5xl px-6 py-20 md:py-24">
+          <div className="flex flex-col items-center text-center">
             <motion.h1
               initial={{ opacity: 0, y: 25 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.1 }}
-              className="mb-6 text-4xl leading-[1.1] font-bold tracking-tight text-white sm:text-5xl lg:text-[3.5rem]"
+              className="mb-6 text-4xl leading-[1.08] font-bold tracking-tight text-white sm:text-5xl lg:text-6xl"
             >
-              Kontakt <span style={{ color: TEAL_LIGHT }}>aufnehmen.</span>
+              Kontakt aufnehmen
             </motion.h1>
 
             <motion.p
               initial={{ opacity: 0, y: 25 }}
               animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.15 }}
+              className="mb-4 text-lg font-semibold text-primary sm:text-xl"
+            >
+              Wir freuen uns auf Ihre Anfrage
+            </motion.p>
+
+            <motion.p
+              initial={{ opacity: 0, y: 25 }}
+              animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="mx-auto mb-8 max-w-2xl text-lg leading-relaxed text-slate-300"
+              className="mb-10 max-w-2xl text-lg leading-relaxed text-slate-300"
             >
               Haben Sie Fragen oder möchten Sie ein Angebot anfordern? Wir
-              freuen uns auf Ihre Nachricht und beraten Sie gerne persönlich.
+              beraten Sie gerne persönlich und unverbindlich.
             </motion.p>
 
             <motion.div
               initial={{ opacity: 0, y: 25 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
-              className="flex flex-wrap justify-center gap-3"
+              className="flex flex-wrap justify-center gap-4"
             >
               <Link
                 href="#form"
-                className="inline-flex items-center gap-2 rounded-lg px-6 py-3 text-sm font-semibold text-white shadow-lg transition-all hover:shadow-xl hover:brightness-110"
-                style={{
-                  backgroundColor: TEAL,
-                  boxShadow: "0 10px 30px -5px rgba(0,151,167,0.3)",
-                }}
+                className="inline-flex items-center gap-2 rounded-lg bg-primary px-7 py-3.5 text-sm font-semibold text-white shadow-lg shadow-primary/30 transition-all hover:shadow-xl hover:brightness-110"
               >
                 Nachricht senden
                 <ArrowRight className="h-4 w-4" />
               </Link>
-              <Link
-                href="tel:+491234567890"
-                className="inline-flex items-center gap-2 rounded-lg border border-white/15 px-6 py-3 text-sm font-semibold text-white/80 transition-all hover:border-white/30 hover:bg-white/5 hover:text-white"
+              <a
+                href="tel:+4922389356034"
+                className="inline-flex items-center gap-2 rounded-lg border border-white/15 px-7 py-3.5 text-sm font-semibold text-white/80 transition-all hover:border-white/30 hover:bg-white/5 hover:text-white"
               >
                 <Phone className="h-4 w-4" />
                 Direkt anrufen
-              </Link>
+              </a>
             </motion.div>
           </div>
         </div>
       </section>
 
       {/* ── Contact Form & Info ── */}
-      <section
-        id="form"
-        className="py-20 md:py-28"
-        style={{ backgroundColor: OFF_WHITE }}
-      >
+      <section id="form" className="bg-white py-20 md:py-24">
         <div className="mx-auto max-w-7xl px-6">
           <div className="grid grid-cols-1 gap-12 lg:grid-cols-2">
             {/* Contact Form */}
@@ -254,37 +188,26 @@ export default function KontaktPage() {
               viewport={{ once: true }}
               transition={{ duration: 0.5 }}
             >
-              <span
-                className="mb-3 inline-block text-sm font-semibold tracking-wider uppercase"
-                style={{ color: TEAL }}
-              >
+              <span className="mb-3 inline-block text-sm font-semibold tracking-wider text-primary uppercase">
                 Kontaktformular
               </span>
-              <h2
-                className="mb-2 text-3xl font-bold tracking-tight"
-                style={{ color: NAVY }}
-              >
+              <h2 className="mb-2 text-3xl font-bold tracking-tight text-foreground">
                 Nachricht senden
               </h2>
-              <p className="mb-8 text-slate-500">
+              <p className="mb-8 text-muted-foreground">
                 Füllen Sie das Formular aus und wir melden uns schnellstmöglich
                 bei Ihnen.
               </p>
 
-              <div className="relative overflow-hidden rounded-xl border border-slate-200/80 bg-white p-7">
-                {/* Top accent line */}
-                <div
-                  className="absolute top-0 right-0 left-0 h-1"
-                  style={{ backgroundColor: TEAL }}
-                />
+              <div className="relative overflow-hidden rounded-xl border border-border bg-white p-7">
+                <div className="absolute top-0 right-0 left-0 h-1 bg-primary" />
 
                 <form onSubmit={handleSubmit} className="space-y-5">
                   <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
                     <div>
                       <label
                         htmlFor="name"
-                        className="mb-1.5 block text-sm font-medium"
-                        style={{ color: NAVY }}
+                        className="mb-1.5 block text-sm font-medium text-foreground"
                       >
                         Name *
                       </label>
@@ -302,8 +225,7 @@ export default function KontaktPage() {
                     <div>
                       <label
                         htmlFor="email"
-                        className="mb-1.5 block text-sm font-medium"
-                        style={{ color: NAVY }}
+                        className="mb-1.5 block text-sm font-medium text-foreground"
                       >
                         E-Mail *
                       </label>
@@ -324,8 +246,7 @@ export default function KontaktPage() {
                     <div>
                       <label
                         htmlFor="phone"
-                        className="mb-1.5 block text-sm font-medium"
-                        style={{ color: NAVY }}
+                        className="mb-1.5 block text-sm font-medium text-foreground"
                       >
                         Telefon
                       </label>
@@ -342,8 +263,7 @@ export default function KontaktPage() {
                     <div>
                       <label
                         htmlFor="company"
-                        className="mb-1.5 block text-sm font-medium"
-                        style={{ color: NAVY }}
+                        className="mb-1.5 block text-sm font-medium text-foreground"
                       >
                         Unternehmen
                       </label>
@@ -362,8 +282,7 @@ export default function KontaktPage() {
                   <div>
                     <label
                       htmlFor="service"
-                      className="mb-1.5 block text-sm font-medium"
-                      style={{ color: NAVY }}
+                      className="mb-1.5 block text-sm font-medium text-foreground"
                     >
                       Bereich
                     </label>
@@ -386,8 +305,7 @@ export default function KontaktPage() {
                   <div>
                     <label
                       htmlFor="subject"
-                      className="mb-1.5 block text-sm font-medium"
-                      style={{ color: NAVY }}
+                      className="mb-1.5 block text-sm font-medium text-foreground"
                     >
                       Betreff
                     </label>
@@ -405,8 +323,7 @@ export default function KontaktPage() {
                   <div>
                     <label
                       htmlFor="message"
-                      className="mb-1.5 block text-sm font-medium"
-                      style={{ color: NAVY }}
+                      className="mb-1.5 block text-sm font-medium text-foreground"
                     >
                       Nachricht *
                     </label>
@@ -425,11 +342,7 @@ export default function KontaktPage() {
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="inline-flex w-full items-center justify-center gap-2 rounded-lg px-6 py-3 text-sm font-semibold text-white shadow-lg transition-all hover:shadow-xl hover:brightness-110 disabled:opacity-60"
-                    style={{
-                      backgroundColor: TEAL,
-                      boxShadow: "0 10px 30px -5px rgba(0,151,167,0.3)",
-                    }}
+                    className="inline-flex w-full items-center justify-center gap-2 rounded-lg bg-primary px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-primary/25 transition-all hover:shadow-xl hover:brightness-110 disabled:opacity-60"
                   >
                     {isSubmitting ? (
                       "Wird gesendet..."
@@ -451,19 +364,13 @@ export default function KontaktPage() {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.15 }}
             >
-              <span
-                className="mb-3 inline-block text-sm font-semibold tracking-wider uppercase"
-                style={{ color: TEAL }}
-              >
+              <span className="mb-3 inline-block text-sm font-semibold tracking-wider text-primary uppercase">
                 Erreichbarkeit
               </span>
-              <h2
-                className="mb-2 text-3xl font-bold tracking-tight"
-                style={{ color: NAVY }}
-              >
+              <h2 className="mb-2 text-3xl font-bold tracking-tight text-foreground">
                 Kontaktinformationen
               </h2>
-              <p className="mb-8 text-slate-500">
+              <p className="mb-8 text-muted-foreground">
                 Erreichen Sie uns auf dem für Sie passenden Weg.
               </p>
 
@@ -477,34 +384,23 @@ export default function KontaktPage() {
                       whileInView={{ opacity: 1, y: 0 }}
                       viewport={{ once: true }}
                       transition={{ duration: 0.4, delay: i * 0.1 }}
-                      className="relative overflow-hidden rounded-xl border border-slate-200/80 bg-white p-6 transition-all hover:shadow-xl hover:shadow-slate-200/50"
+                      className="group relative overflow-hidden rounded-xl border border-border bg-white p-6 transition-all hover:border-slate-300 hover:shadow-xl hover:shadow-slate-200/50"
                     >
-                      {/* Top accent line */}
-                      <div
-                        className="absolute top-0 right-0 left-0 h-1"
-                        style={{ backgroundColor: TEAL }}
-                      />
+                      <div className="absolute top-0 right-0 left-0 h-1 bg-primary transition-all group-hover:h-1.5" />
                       <div className="flex items-start gap-4">
-                        <div
-                          className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-xl"
-                          style={{ backgroundColor: TEAL_PALE }}
-                        >
-                          <Icon className="h-5 w-5" style={{ color: TEAL }} />
+                        <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-xl bg-primary/10">
+                          <Icon className="h-5 w-5 text-primary" />
                         </div>
                         <div>
-                          <h3
-                            className="mb-1 text-base font-bold"
-                            style={{ color: NAVY }}
-                          >
+                          <h3 className="mb-1 text-base font-bold text-foreground">
                             {info.title}
                           </h3>
-                          <p className="text-sm whitespace-pre-line text-slate-500">
+                          <p className="text-sm whitespace-pre-line text-muted-foreground">
                             {info.content}
                           </p>
                           <Link
                             href={info.action}
-                            className="mt-2 inline-flex items-center gap-1 text-sm font-medium transition-colors hover:brightness-110"
-                            style={{ color: TEAL }}
+                            className="mt-2 inline-flex items-center gap-1 text-sm font-medium text-primary transition-colors hover:brightness-110"
                           >
                             {info.linkLabel}
                             <ArrowRight className="h-3.5 w-3.5" />
@@ -522,37 +418,27 @@ export default function KontaktPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: 0.3 }}
-                className="relative mt-6 overflow-hidden rounded-xl border border-slate-200/80 bg-white p-6"
+                className="group relative mt-6 overflow-hidden rounded-xl border border-border bg-white p-6"
               >
-                {/* Top accent line */}
-                <div
-                  className="absolute top-0 right-0 left-0 h-1"
-                  style={{ backgroundColor: TEAL }}
-                />
+                <div className="absolute top-0 right-0 left-0 h-1 bg-primary transition-all group-hover:h-1.5" />
                 <div className="mb-4 flex items-center gap-3">
-                  <div
-                    className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-xl"
-                    style={{ backgroundColor: TEAL_PALE }}
-                  >
-                    <Clock className="h-5 w-5" style={{ color: TEAL }} />
+                  <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-xl bg-primary/10">
+                    <Clock className="h-5 w-5 text-primary" />
                   </div>
-                  <h3 className="text-base font-bold" style={{ color: NAVY }}>
-                    Öffnungszeiten
+                  <h3 className="text-base font-bold text-foreground">
+                    Öffnungszeiten Verwaltung
                   </h3>
                 </div>
                 <div className="space-y-3">
                   {businessHours.map((item) => (
                     <div
                       key={item.day}
-                      className="flex justify-between border-b border-slate-100 pb-2 last:border-0 last:pb-0"
+                      className="flex justify-between border-b border-border pb-2 last:border-0 last:pb-0"
                     >
-                      <span
-                        className="text-sm font-medium"
-                        style={{ color: NAVY }}
-                      >
+                      <span className="text-sm font-medium text-foreground">
                         {item.day}
                       </span>
-                      <span className="text-sm text-slate-500">
+                      <span className="text-sm text-muted-foreground">
                         {item.hours}
                       </span>
                     </div>
@@ -564,8 +450,8 @@ export default function KontaktPage() {
         </div>
       </section>
 
-      {/* ── Quick Contact ── */}
-      <section className="bg-white py-20 md:py-28">
+      {/* ── Map / Standort ── */}
+      <section className="border-t border-border bg-slate-50 py-20 md:py-24">
         <div className="mx-auto max-w-7xl px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -573,112 +459,10 @@ export default function KontaktPage() {
             viewport={{ once: true }}
             className="mb-16 text-center"
           >
-            <span
-              className="mb-3 inline-block text-sm font-semibold tracking-wider uppercase"
-              style={{ color: TEAL }}
-            >
-              Schnellkontakt
-            </span>
-            <h2
-              className="mb-4 text-3xl font-bold tracking-tight md:text-4xl"
-              style={{ color: NAVY }}
-            >
-              Schnell in Kontakt treten
-            </h2>
-            <p className="mx-auto max-w-2xl text-slate-500">
-              Wählen Sie den für Sie passenden Kontaktweg — wir sind für Sie da.
-            </p>
-          </motion.div>
-
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
-            {quickContacts.map((item, i) => {
-              const Icon = item.icon;
-              return (
-                <motion.div
-                  key={item.title}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: i * 0.1 }}
-                  className="relative overflow-hidden rounded-xl border border-slate-200/80 bg-white p-7 text-center transition-all hover:shadow-xl hover:shadow-slate-200/50"
-                >
-                  {/* Top accent line */}
-                  <div
-                    className="absolute top-0 right-0 left-0 h-1"
-                    style={{ backgroundColor: TEAL }}
-                  />
-                  <div
-                    className="mx-auto mb-5 flex h-14 w-14 items-center justify-center rounded-xl"
-                    style={{ backgroundColor: TEAL_PALE }}
-                  >
-                    <Icon className="h-6 w-6" style={{ color: TEAL }} />
-                  </div>
-                  <h3
-                    className="mb-2 text-lg font-bold"
-                    style={{ color: NAVY }}
-                  >
-                    {item.title}
-                  </h3>
-                  <p className="mb-5 text-sm leading-relaxed text-slate-500">
-                    {item.description}
-                  </p>
-                  {item.primary ? (
-                    <Link
-                      href={item.href}
-                      className="inline-flex items-center justify-center gap-2 rounded-lg px-5 py-2.5 text-sm font-semibold text-white shadow-lg transition-all hover:shadow-xl hover:brightness-110"
-                      style={{
-                        backgroundColor: TEAL,
-                        boxShadow: "0 10px 30px -5px rgba(0,151,167,0.3)",
-                      }}
-                    >
-                      <Icon className="h-4 w-4" />
-                      {item.label}
-                    </Link>
-                  ) : (
-                    <Link
-                      href={item.href}
-                      className="inline-flex items-center justify-center gap-2 rounded-lg border px-5 py-2.5 text-sm font-semibold transition-all hover:bg-slate-50"
-                      style={{
-                        borderColor: TEAL,
-                        color: TEAL,
-                      }}
-                    >
-                      <Icon className="h-4 w-4" />
-                      {item.label}
-                    </Link>
-                  )}
-                </motion.div>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-
-      {/* ── Map ── */}
-      <section
-        className="py-20 md:py-28"
-        style={{ backgroundColor: OFF_WHITE }}
-      >
-        <div className="mx-auto max-w-7xl px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="mb-16 text-center"
-          >
-            <span
-              className="mb-3 inline-block text-sm font-semibold tracking-wider uppercase"
-              style={{ color: TEAL }}
-            >
-              Standort
-            </span>
-            <h2
-              className="mb-4 text-3xl font-bold tracking-tight md:text-4xl"
-              style={{ color: NAVY }}
-            >
+            <h2 className="mb-4 text-3xl font-bold tracking-tight text-foreground md:text-4xl">
               So finden Sie uns
             </h2>
-            <p className="mx-auto max-w-2xl text-slate-500">
+            <p className="mx-auto max-w-2xl text-muted-foreground">
               Besuchen Sie uns in unserem Büro oder vereinbaren Sie einen Termin
               vor Ort bei Ihrem Projekt.
             </p>
@@ -689,35 +473,24 @@ export default function KontaktPage() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="relative overflow-hidden rounded-xl border border-slate-200/80 bg-white"
+            className="group relative overflow-hidden rounded-xl border border-border bg-white"
           >
-            {/* Top accent line */}
-            <div
-              className="absolute top-0 right-0 left-0 h-1"
-              style={{ backgroundColor: TEAL }}
-            />
+            <div className="absolute top-0 right-0 left-0 h-1 bg-primary transition-all group-hover:h-1.5" />
             <div className="flex h-96 items-center justify-center">
               <div className="text-center">
-                <div
-                  className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-xl"
-                  style={{ backgroundColor: TEAL_PALE }}
-                >
-                  <MapPin className="h-7 w-7" style={{ color: TEAL }} />
+                <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-xl bg-primary/10">
+                  <MapPin className="h-7 w-7 text-primary" />
                 </div>
-                <h3 className="mb-2 text-xl font-bold" style={{ color: NAVY }}>
+                <h3 className="mb-2 text-xl font-bold text-foreground">
                   Standort Karte
                 </h3>
-                <p className="mb-5 text-sm text-slate-500">
-                  Musterstraße 123, 12345 Musterstadt
+                <p className="mb-5 text-sm text-muted-foreground">
+                  Wolfhelmstr. 36, 50259 Pulheim
                 </p>
                 <Link
-                  href="https://maps.google.com"
+                  href="https://maps.google.com/?q=Wolfhelmstr.+36,+50259+Pulheim"
                   target="_blank"
-                  className="inline-flex items-center gap-2 rounded-lg px-5 py-2.5 text-sm font-semibold text-white shadow-lg transition-all hover:shadow-xl hover:brightness-110"
-                  style={{
-                    backgroundColor: TEAL,
-                    boxShadow: "0 10px 30px -5px rgba(0,151,167,0.3)",
-                  }}
+                  className="inline-flex items-center gap-2 rounded-lg bg-primary px-5 py-2.5 text-sm font-semibold text-white shadow-lg shadow-primary/25 transition-all hover:shadow-xl hover:brightness-110"
                 >
                   Route planen
                   <ArrowRight className="h-4 w-4" />
@@ -729,67 +502,47 @@ export default function KontaktPage() {
       </section>
 
       {/* ── CTA ── */}
-      <section
-        className="relative overflow-hidden"
-        style={{ backgroundColor: NAVY }}
-      >
-        {/* Geometric bg pattern */}
+      <section className="relative overflow-hidden border-t border-border bg-white py-20 md:py-24">
         <div
-          className="absolute inset-0 opacity-[0.05]"
+          className="absolute inset-0 opacity-[0.035]"
           style={{
-            backgroundImage: `
-              linear-gradient(30deg, ${TEAL} 12%, transparent 12.5%, transparent 87%, ${TEAL} 87.5%, ${TEAL}),
-              linear-gradient(150deg, ${TEAL} 12%, transparent 12.5%, transparent 87%, ${TEAL} 87.5%, ${TEAL}),
-              linear-gradient(30deg, ${TEAL} 12%, transparent 12.5%, transparent 87%, ${TEAL} 87.5%, ${TEAL}),
-              linear-gradient(150deg, ${TEAL} 12%, transparent 12.5%, transparent 87%, ${TEAL} 87.5%, ${TEAL}),
-              linear-gradient(60deg, rgba(0,151,167,0.3) 25%, transparent 25.5%, transparent 75%, rgba(0,151,167,0.3) 75%, rgba(0,151,167,0.3)),
-              linear-gradient(60deg, rgba(0,151,167,0.3) 25%, transparent 25.5%, transparent 75%, rgba(0,151,167,0.3) 75%, rgba(0,151,167,0.3))
-            `,
-            backgroundSize: "80px 140px",
-            backgroundPosition:
-              "0 0, 0 0, 40px 70px, 40px 70px, 0 0, 40px 70px",
+            backgroundImage: `radial-gradient(circle, var(--primary) 1.2px, transparent 1.2px)`,
+            backgroundSize: "32px 32px",
           }}
         />
+        <div className="pointer-events-none absolute -top-32 left-1/2 h-64 w-[600px] -translate-x-1/2 rounded-full bg-primary/5 blur-3xl" />
 
-        <div className="relative mx-auto max-w-7xl px-6 py-20 md:py-28">
+        <div className="relative mx-auto max-w-4xl px-6 text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="mx-auto max-w-2xl text-center"
           >
-            <span
-              className="mb-3 inline-block text-sm font-semibold tracking-wider uppercase"
-              style={{ color: TEAL_LIGHT }}
-            >
+            <span className="mb-4 inline-block text-sm font-semibold tracking-wider text-primary uppercase">
               Jetzt starten
             </span>
-            <h2 className="mb-4 text-3xl font-bold tracking-tight text-white md:text-4xl">
+            <h2 className="mb-4 text-3xl font-bold tracking-tight text-foreground md:text-4xl">
               Bereit für Ihr Projekt?
             </h2>
-            <p className="mx-auto mb-8 max-w-2xl text-lg leading-relaxed text-slate-300">
+            <p className="mx-auto mb-10 max-w-2xl text-lg text-muted-foreground">
               Kontaktieren Sie uns noch heute und lassen Sie sich unverbindlich
               beraten. Wir freuen uns auf Ihr Projekt.
             </p>
-            <div className="flex flex-col justify-center gap-3 sm:flex-row">
+            <div className="flex flex-wrap justify-center gap-4">
               <Link
                 href="#form"
-                className="inline-flex items-center justify-center gap-2 rounded-lg px-6 py-3 text-sm font-semibold text-white shadow-lg transition-all hover:shadow-xl hover:brightness-110"
-                style={{
-                  backgroundColor: TEAL,
-                  boxShadow: "0 10px 30px -5px rgba(0,151,167,0.3)",
-                }}
+                className="inline-flex items-center gap-2 rounded-lg bg-primary px-7 py-3.5 text-sm font-semibold text-white shadow-lg shadow-primary/25 transition-all hover:shadow-xl hover:brightness-110"
               >
                 Anfrage senden
                 <ArrowRight className="h-4 w-4" />
               </Link>
-              <Link
-                href="tel:+491234567890"
-                className="inline-flex items-center justify-center gap-2 rounded-lg border border-white/15 px-6 py-3 text-sm font-semibold text-white/80 transition-all hover:border-white/30 hover:bg-white/5 hover:text-white"
+              <a
+                href="tel:+4922389356034"
+                className="inline-flex items-center gap-2 rounded-lg border border-border px-7 py-3.5 text-sm font-semibold text-foreground transition-all hover:border-primary/30 hover:bg-primary/5"
               >
-                <Phone className="h-4 w-4" />
-                Jetzt anrufen
-              </Link>
+                <Phone className="h-4 w-4 text-primary" />
+                +49 (0) 2238 9356034
+              </a>
             </div>
           </motion.div>
         </div>
