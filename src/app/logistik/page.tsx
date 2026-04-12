@@ -3,109 +3,94 @@
 import Link from "next/link";
 import { motion } from "motion/react";
 import {
+  HardHat,
+  ClipboardCheck,
   Truck,
-  Clock,
-  MapPin,
   Shield,
-  CheckCircle2,
+  Users,
+  Cog,
   Phone,
   ArrowRight,
-  Package,
-  Recycle,
+  CheckCircle2,
 } from "lucide-react";
 
 /* ─── Colors ──────────────────────────────────────────────────── */
-const NAVY = "#0C2340";
-const NAVY_LIGHT = "#143054";
+const NAVY = "#1A3A63";
+const NAVY_LIGHT = "#224B7A";
 const TEAL = "#0097A7";
-const TEAL_LIGHT = "#00ACC1";
-const TEAL_PALE = "#E0F7FA";
-const OFF_WHITE = "#F8FAFC";
 
 /* ─── Data ────────────────────────────────────────────────────── */
 
 const services = [
   {
-    title: "Baustellenlogistik",
+    title: "Unterstützung der Baustellenorganisation",
+    icon: ClipboardCheck,
+    description:
+      "Mitwirkung bei der Strukturierung und Aufrechterhaltung geordneter Baustellenabläufe.",
+    features: [
+      "Strukturierung geordneter Baustellenabläufe",
+      "Einrichtung und Anpassung von Baustellenbereichen",
+      "Reibungsloser Bauablauf gemäß Vorgaben der Bauleitung",
+    ],
+  },
+  {
+    title: "Unterstützung der Baustellenlogistik",
     icon: Truck,
     description:
-      "Professionelle Logistiklösungen für Ihre Baustelle - von der Planung bis zur Ausführung.",
+      "Mitwirkung bei der Koordination von Materialanlieferungen und Gerätebewegungen.",
     features: [
-      "Anlieferungsplanung",
-      "Materialbereitstellung",
-      "Just-in-Time Lieferung",
-      "Lagerung vor Ort",
+      "Koordination von Materialanlieferungen & Gerätebewegungen",
+      "Flächenorganisation (Lager-, Verkehrs- & Arbeitsbereiche)",
+      "Optimierung von Transportwegen & Baustellenzugängen",
     ],
   },
   {
-    title: "Materiallieferung",
-    icon: Package,
+    title: "Schnittstellenkoordination zwischen Gewerken",
+    icon: Users,
     description:
-      "Zuverlässige Lieferung von Baumaterialien aller Art direkt zu Ihrer Baustelle.",
+      "Mitwirkung bei der Abstimmung von Arbeitsabläufen zwischen beteiligten Gewerken.",
     features: [
-      "Baustoffe aller Art",
-      "Flexible Lieferzeiten",
-      "Kranservice verfügbar",
-      "Expresslieferung möglich",
+      "Abstimmung von Arbeitsabläufen zwischen Gewerken",
+      "Vermeidung von Behinderungen & Überschneidungen",
+      "Abstimmung von Übergabepunkten & Arbeitsfortschritten",
     ],
   },
   {
-    title: "Entsorgung & Recycling",
-    icon: Recycle,
+    title: "Arbeitsschutz & Sicherheitsmaßnahmen",
+    icon: Shield,
     description:
-      "Fachgerechte Entsorgung von Bauabfällen und umweltfreundliches Recycling.",
+      "Mitwirkung bei der praktischen Umsetzung vorgegebener Sicherheits- und Schutzmaßnahmen.",
     features: [
-      "Containerservice",
-      "Sortierte Entsorgung",
-      "Recycling-Lösungen",
-      "Umweltgerechte Verwertung",
+      "Umsetzung vorgegebener Sicherheits- & Schutzmaßnahmen",
+      "Einhaltung von Baustellenregelungen & Sicherheitsvorgaben",
+      "Minimierung von Gefährdungen im laufenden Betrieb",
+    ],
+  },
+  {
+    title: "Umsetzung projektspezifischer Konzepte",
+    icon: Cog,
+    description:
+      "Mitwirkung bei der Umsetzung vorgegebener Baustellenkonzepte wie Staubschutz, Logistik und Zugangskonzepte.",
+    features: [
+      "Staubschutz-, Logistik- & Zugangskonzepte",
+      "Anpassung der Konzepte an den Baufortschritt",
+      "Sicherstellung der praktischen Umsetzbarkeit",
     ],
   },
 ];
 
 const advantages = [
   {
-    icon: Clock,
-    title: "Pünktliche Lieferung",
-    description: "Zuverlässige Einhaltung der vereinbarten Lieferzeiten",
+    title: "Ganzheitliche Projektabwicklung",
+    description: "Alle unterstützenden Leistungen aus einer Hand.",
   },
   {
-    icon: Truck,
-    title: "Moderne Fahrzeugflotte",
-    description: "Gut gewartete Fahrzeuge für sichere Transporte",
+    title: "Praxisnahe Lösungen",
+    description: "Mit unternehmerischem Denken direkt aus dem Baualltag.",
   },
   {
-    icon: Shield,
-    title: "Versicherte Transporte",
-    description: "Vollversicherung für alle transportierten Materialien",
-  },
-  {
-    icon: MapPin,
-    title: "Regionale Abdeckung",
-    description: "Schnelle Lieferung in der gesamten Region",
-  },
-];
-
-const processSteps = [
-  {
-    step: "01",
-    title: "Beratung",
-    description: "Kostenlose Bestandsaufnahme und Beratung vor Ort",
-  },
-  {
-    step: "02",
-    title: "Planung",
-    description: "Detaillierte Logistikplanung für Ihr Projekt",
-  },
-  {
-    step: "03",
-    title: "Umsetzung",
-    description: "Professionelle Durchführung nach Plan",
-  },
-  {
-    step: "04",
-    title: "Service",
-    description: "Kontinuierlicher Support während des Projekts",
+    title: "Verlässlichkeit",
+    description: "Die man messen kann — termingerecht und transparent.",
   },
 ];
 
@@ -113,13 +98,12 @@ const processSteps = [
 
 export default function LogistikPage() {
   return (
-    <main className="min-h-screen bg-white">
+    <main>
       {/* ── Hero ── */}
       <section
         className="relative overflow-hidden"
         style={{ backgroundColor: NAVY }}
       >
-        {/* Geometric bg pattern */}
         <div
           className="absolute inset-0 opacity-[0.07]"
           style={{
@@ -132,12 +116,9 @@ export default function LogistikPage() {
               linear-gradient(60deg, rgba(0,151,167,0.3) 25%, transparent 25.5%, transparent 75%, rgba(0,151,167,0.3) 75%, rgba(0,151,167,0.3))
             `,
             backgroundSize: "80px 140px",
-            backgroundPosition:
-              "0 0, 0 0, 40px 70px, 40px 70px, 0 0, 40px 70px",
+            backgroundPosition: "0 0, 0 0, 40px 70px, 40px 70px, 0 0, 40px 70px",
           }}
         />
-
-        {/* Gradient overlay */}
         <div
           className="absolute inset-0"
           style={{
@@ -146,17 +127,17 @@ export default function LogistikPage() {
           }}
         />
 
-        <div className="relative mx-auto max-w-7xl px-6 py-20 md:py-28 lg:py-36">
-          <div className="mx-auto max-w-3xl text-center">
+        <div className="relative mx-auto max-w-5xl px-6 py-24 md:py-32 lg:py-40">
+          <div className="flex flex-col items-center text-center">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
               className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-1.5 backdrop-blur-sm"
             >
-              <Truck className="h-4 w-4" style={{ color: TEAL_LIGHT }} />
+              <HardHat className="h-4 w-4 text-primary" />
               <span className="text-xs font-medium text-white/70">
-                Transport & Logistik
+                Geschäftsbereich
               </span>
             </motion.div>
 
@@ -164,43 +145,46 @@ export default function LogistikPage() {
               initial={{ opacity: 0, y: 25 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.1 }}
-              className="mb-6 text-4xl leading-[1.1] font-bold tracking-tight text-white sm:text-5xl lg:text-[3.5rem]"
+              className="mb-6 text-4xl leading-[1.08] font-bold tracking-tight text-white sm:text-5xl lg:text-6xl"
             >
-              Logistik{" "}
-              <span style={{ color: TEAL_LIGHT }}>die bewegt.</span>
+              Baustellenmanagement
             </motion.h1>
 
             <motion.p
               initial={{ opacity: 0, y: 25 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="mx-auto mb-8 max-w-2xl text-lg leading-relaxed text-slate-300"
+              transition={{ duration: 0.6, delay: 0.15 }}
+              className="mb-4 text-lg font-semibold text-primary sm:text-xl"
             >
-              Professionelle Transport- und Logistiklösungen für Bauprojekte
-              aller Größenordnungen. Von der Planung bis zur Ausführung — wir
-              bewegen was bewegt werden muss.
+              Unterstützende Leistungen
+            </motion.p>
+
+            <motion.p
+              initial={{ opacity: 0, y: 25 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="mb-10 max-w-2xl text-lg leading-relaxed text-slate-300"
+            >
+              Von der Organisation über die Logistik bis zur
+              Schnittstellenkoordination — für einen reibungslosen Bauablauf.
             </motion.p>
 
             <motion.div
               initial={{ opacity: 0, y: 25 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
-              className="flex flex-wrap justify-center gap-3"
+              className="flex flex-wrap justify-center gap-4"
             >
               <Link
                 href="/kontakt"
-                className="inline-flex items-center gap-2 rounded-lg px-6 py-3 text-sm font-semibold text-white shadow-lg transition-all hover:shadow-xl hover:brightness-110"
-                style={{
-                  backgroundColor: TEAL,
-                  boxShadow: "0 10px 30px -5px rgba(0,151,167,0.3)",
-                }}
+                className="inline-flex items-center gap-2 rounded-lg bg-primary px-7 py-3.5 text-sm font-semibold text-white shadow-lg shadow-primary/30 transition-all hover:shadow-xl hover:brightness-110"
               >
-                Logistik-Angebot anfordern
+                Angebot anfordern
                 <ArrowRight className="h-4 w-4" />
               </Link>
               <Link
-                href="#dienstleistungen"
-                className="inline-flex items-center gap-2 rounded-lg border border-white/15 px-6 py-3 text-sm font-semibold text-white/80 transition-all hover:border-white/30 hover:bg-white/5 hover:text-white"
+                href="#leistungen"
+                className="inline-flex items-center gap-2 rounded-lg border border-white/15 px-7 py-3.5 text-sm font-semibold text-white/80 transition-all hover:border-white/30 hover:bg-white/5 hover:text-white"
               >
                 Unsere Leistungen
               </Link>
@@ -210,11 +194,7 @@ export default function LogistikPage() {
       </section>
 
       {/* ── Services ── */}
-      <section
-        id="dienstleistungen"
-        className="py-20 md:py-28"
-        style={{ backgroundColor: OFF_WHITE }}
-      >
+      <section id="leistungen" className="bg-white py-20 md:py-24">
         <div className="mx-auto max-w-7xl px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -222,25 +202,16 @@ export default function LogistikPage() {
             viewport={{ once: true }}
             className="mb-16 text-center"
           >
-            <span
-              className="mb-3 inline-block text-sm font-semibold tracking-wider uppercase"
-              style={{ color: TEAL }}
-            >
-              Dienstleistungen
-            </span>
-            <h2
-              className="mb-4 text-3xl font-bold tracking-tight md:text-4xl"
-              style={{ color: NAVY }}
-            >
-              Unsere Logistik-Dienstleistungen
+            <h2 className="mb-4 text-3xl font-bold tracking-tight text-foreground md:text-4xl">
+              Unsere Leistungen im Überblick
             </h2>
-            <p className="mx-auto max-w-2xl text-slate-500">
-              Umfassende Logistiklösungen für Ihr Bauprojekt — effizient,
-              zuverlässig und kostengünstig.
+            <p className="mx-auto max-w-2xl text-muted-foreground">
+              Umfassende Unterstützung für einen strukturierten und sicheren
+              Baustellenbetrieb.
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
+          <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
             {services.map((service, i) => {
               const Icon = service.icon;
               return (
@@ -249,40 +220,27 @@ export default function LogistikPage() {
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: i * 0.1 }}
-                  className="relative h-full overflow-hidden rounded-xl border border-slate-200/80 bg-white p-7 transition-all hover:shadow-xl hover:shadow-slate-200/50"
+                  transition={{ duration: 0.5, delay: i * 0.08 }}
+                  className="group relative flex h-full flex-col overflow-hidden rounded-xl border border-border bg-white p-6 transition-all hover:border-slate-300 hover:shadow-xl hover:shadow-slate-200/50"
                 >
-                  {/* Top accent line */}
-                  <div
-                    className="absolute top-0 right-0 left-0 h-1"
-                    style={{ backgroundColor: TEAL }}
-                  />
-                  <div
-                    className="mb-5 flex h-13 w-13 items-center justify-center rounded-xl"
-                    style={{ backgroundColor: TEAL_PALE }}
-                  >
-                    <Icon className="h-6 w-6" style={{ color: TEAL }} />
+                  <div className="absolute top-0 right-0 left-0 h-1 bg-primary transition-all group-hover:h-1.5" />
+                  <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10">
+                    <Icon className="h-6 w-6 text-primary" />
                   </div>
-                  <h3
-                    className="mb-2 text-lg font-bold"
-                    style={{ color: NAVY }}
-                  >
+                  <h3 className="mb-1.5 text-base font-bold text-foreground">
                     {service.title}
                   </h3>
-                  <p className="mb-5 text-sm leading-relaxed text-slate-500">
+                  <p className="mb-4 text-sm leading-relaxed text-muted-foreground">
                     {service.description}
                   </p>
-                  <ul className="space-y-2.5">
+                  <ul className="mt-auto space-y-2">
                     {service.features.map((feature) => (
                       <li
                         key={feature}
-                        className="flex items-center gap-2 text-sm"
+                        className="flex items-start gap-2 text-xs text-slate-500"
                       >
-                        <CheckCircle2
-                          className="h-4 w-4 flex-shrink-0"
-                          style={{ color: TEAL }}
-                        />
-                        <span className="text-slate-600">{feature}</span>
+                        <CheckCircle2 className="mt-0.5 h-3.5 w-3.5 shrink-0 text-primary" />
+                        <span>{feature}</span>
                       </li>
                     ))}
                   </ul>
@@ -293,119 +251,47 @@ export default function LogistikPage() {
         </div>
       </section>
 
-      {/* ── Advantages ── */}
-      <section className="bg-white py-20 md:py-28">
-        <div className="mx-auto max-w-7xl px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="mb-16 text-center"
-          >
-            <span
-              className="mb-3 inline-block text-sm font-semibold tracking-wider uppercase"
-              style={{ color: TEAL }}
-            >
-              Vorteile
-            </span>
-            <h2
-              className="mb-4 text-3xl font-bold tracking-tight md:text-4xl"
-              style={{ color: NAVY }}
-            >
-              Ihre Vorteile
-            </h2>
-            <p className="mx-auto max-w-2xl text-slate-500">
-              Warum Sie sich für unsere Logistik-Dienstleistungen entscheiden
-              sollten.
-            </p>
-          </motion.div>
-
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
-            {advantages.map((advantage, i) => {
-              const Icon = advantage.icon;
-              return (
-                <motion.div
-                  key={advantage.title}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: i * 0.1 }}
-                  className="text-center"
-                >
-                  <div
-                    className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-xl"
-                    style={{ backgroundColor: TEAL_PALE }}
-                  >
-                    <Icon className="h-6 w-6" style={{ color: TEAL }} />
-                  </div>
-                  <h3
-                    className="mb-2 text-lg font-bold"
-                    style={{ color: NAVY }}
-                  >
-                    {advantage.title}
-                  </h3>
-                  <p className="text-sm leading-relaxed text-slate-500">
-                    {advantage.description}
-                  </p>
-                </motion.div>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-
-      {/* ── Process ── */}
+      {/* ── Warum Makopa ── */}
       <section
-        className="py-20 md:py-28"
-        style={{ backgroundColor: OFF_WHITE }}
+        className="relative overflow-hidden py-20"
+        style={{ backgroundColor: NAVY }}
       >
-        <div className="mx-auto max-w-7xl px-6">
+        <div
+          className="pointer-events-none absolute top-1/2 left-1/2 h-[700px] w-[900px] -translate-x-1/2 -translate-y-1/2 rounded-full opacity-[0.07]"
+          style={{
+            background: `radial-gradient(ellipse, ${TEAL} 0%, transparent 70%)`,
+          }}
+        />
+        <div className="relative mx-auto max-w-7xl px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="mb-16 text-center"
+            transition={{ duration: 0.6 }}
+            className="mb-12"
           >
-            <span
-              className="mb-3 inline-block text-sm font-semibold tracking-wider uppercase"
-              style={{ color: TEAL }}
-            >
-              Ablauf
-            </span>
-            <h2
-              className="mb-4 text-3xl font-bold tracking-tight md:text-4xl"
-              style={{ color: NAVY }}
-            >
-              Unser Ablauf
+            <h2 className="mb-3 text-sm font-semibold tracking-wider text-primary uppercase">
+              Warum Makopa Bau
             </h2>
-            <p className="mx-auto max-w-2xl text-slate-500">
-              So einfach gestalten wir Ihre Baustellenlogistik.
+            <p className="max-w-2xl text-2xl font-bold text-white md:text-3xl">
+              Ganzheitliche Projektabwicklung aus einer Hand.
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 gap-8 md:grid-cols-4">
-            {processSteps.map((item, i) => (
+          <div className="grid gap-6 md:grid-cols-3">
+            {advantages.map((item, i) => (
               <motion.div
-                key={item.step}
-                initial={{ opacity: 0, y: 20 }}
+                key={item.title}
+                initial={{ opacity: 0, y: 25 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: i * 0.1 }}
-                className="text-center"
+                className="rounded-xl border border-white/10 bg-white/5 p-6"
               >
-                <div
-                  className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full text-xl font-bold text-white"
-                  style={{ backgroundColor: TEAL }}
-                >
-                  {item.step}
-                </div>
-                <h3
-                  className="mb-2 text-lg font-bold"
-                  style={{ color: NAVY }}
-                >
+                <h3 className="mb-2 text-lg font-bold text-white">
                   {item.title}
                 </h3>
-                <p className="text-sm leading-relaxed text-slate-500">
+                <p className="text-sm leading-relaxed text-slate-300">
                   {item.description}
                 </p>
               </motion.div>
@@ -415,68 +301,47 @@ export default function LogistikPage() {
       </section>
 
       {/* ── CTA ── */}
-      <section
-        className="relative overflow-hidden"
-        style={{ backgroundColor: NAVY }}
-      >
-        {/* Geometric bg pattern */}
+      <section className="relative overflow-hidden border-t border-border bg-white py-20 md:py-24">
         <div
-          className="absolute inset-0 opacity-[0.05]"
+          className="absolute inset-0 opacity-[0.035]"
           style={{
-            backgroundImage: `
-              linear-gradient(30deg, ${TEAL} 12%, transparent 12.5%, transparent 87%, ${TEAL} 87.5%, ${TEAL}),
-              linear-gradient(150deg, ${TEAL} 12%, transparent 12.5%, transparent 87%, ${TEAL} 87.5%, ${TEAL}),
-              linear-gradient(30deg, ${TEAL} 12%, transparent 12.5%, transparent 87%, ${TEAL} 87.5%, ${TEAL}),
-              linear-gradient(150deg, ${TEAL} 12%, transparent 12.5%, transparent 87%, ${TEAL} 87.5%, ${TEAL}),
-              linear-gradient(60deg, rgba(0,151,167,0.3) 25%, transparent 25.5%, transparent 75%, rgba(0,151,167,0.3) 75%, rgba(0,151,167,0.3)),
-              linear-gradient(60deg, rgba(0,151,167,0.3) 25%, transparent 25.5%, transparent 75%, rgba(0,151,167,0.3) 75%, rgba(0,151,167,0.3))
-            `,
-            backgroundSize: "80px 140px",
-            backgroundPosition:
-              "0 0, 0 0, 40px 70px, 40px 70px, 0 0, 40px 70px",
+            backgroundImage: `radial-gradient(circle, var(--primary) 1.2px, transparent 1.2px)`,
+            backgroundSize: "32px 32px",
           }}
         />
+        <div className="pointer-events-none absolute -top-32 left-1/2 h-64 w-[600px] -translate-x-1/2 rounded-full bg-primary/5 blur-3xl" />
 
-        <div className="relative mx-auto max-w-7xl px-6 py-20 md:py-28">
+        <div className="relative mx-auto max-w-4xl px-6 text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="mx-auto max-w-2xl text-center"
           >
-            <span
-              className="mb-3 inline-block text-sm font-semibold tracking-wider uppercase"
-              style={{ color: TEAL_LIGHT }}
-            >
-              Jetzt starten
+            <span className="mb-4 inline-block text-sm font-semibold tracking-wider text-primary uppercase">
+              Kontakt
             </span>
-            <h2 className="mb-4 text-3xl font-bold tracking-tight text-white md:text-4xl">
-              Brauchen Sie Logistik-Support?
+            <h2 className="mb-4 text-3xl font-bold tracking-tight text-foreground md:text-4xl">
+              Lassen Sie uns über Ihr Projekt sprechen
             </h2>
-            <p className="mx-auto mb-8 max-w-2xl text-lg leading-relaxed text-slate-300">
-              Kontaktieren Sie uns für eine kostenlose Beratung zu Ihrem
-              Logistik-Projekt. Wir finden die optimale Lösung für Ihre
-              Anforderungen.
+            <p className="mx-auto mb-10 max-w-2xl text-lg text-muted-foreground">
+              Kontaktieren Sie uns für eine kostenlose und unverbindliche
+              Beratung. Wir freuen uns auf Ihre Anfrage.
             </p>
-            <div className="flex flex-col justify-center gap-3 sm:flex-row">
+            <div className="flex flex-wrap justify-center gap-4">
               <Link
                 href="/kontakt"
-                className="inline-flex items-center justify-center gap-2 rounded-lg px-6 py-3 text-sm font-semibold text-white shadow-lg transition-all hover:shadow-xl hover:brightness-110"
-                style={{
-                  backgroundColor: TEAL,
-                  boxShadow: "0 10px 30px -5px rgba(0,151,167,0.3)",
-                }}
+                className="inline-flex items-center gap-2 rounded-lg bg-primary px-7 py-3.5 text-sm font-semibold text-white shadow-lg shadow-primary/25 transition-all hover:shadow-xl hover:brightness-110"
               >
-                Beratungstermin vereinbaren
+                Kostenlose Beratung anfragen
                 <ArrowRight className="h-4 w-4" />
               </Link>
-              <Link
-                href="tel:+491234567890"
-                className="inline-flex items-center justify-center gap-2 rounded-lg border border-white/15 px-6 py-3 text-sm font-semibold text-white/80 transition-all hover:border-white/30 hover:bg-white/5 hover:text-white"
+              <a
+                href="tel:+4922389356034"
+                className="inline-flex items-center gap-2 rounded-lg border border-border px-7 py-3.5 text-sm font-semibold text-foreground transition-all hover:border-primary/30 hover:bg-primary/5"
               >
-                <Phone className="h-4 w-4" />
-                Direkt anrufen
-              </Link>
+                <Phone className="h-4 w-4 text-primary" />
+                +49 (0) 2238 9356034
+              </a>
             </div>
           </motion.div>
         </div>

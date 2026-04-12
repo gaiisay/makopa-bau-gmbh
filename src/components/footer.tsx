@@ -1,60 +1,41 @@
 import Link from "next/link";
 import { MapPin, Phone, Mail, Building } from "lucide-react";
+import { Logo } from "./logo";
 
-const NAVY = "#0C2340";
-const NAVY_LIGHT = "#143054";
-const TEAL = "#0097A7";
-const TEAL_LIGHT = "#00ACC1";
+const NAVY = "#1A3A63";
+const NAVY_LIGHT = "#224B7A";
 
 export function Footer() {
   return (
-    <footer style={{ backgroundColor: "#0A1F38" }} className="text-slate-400">
+    <footer className="text-slate-300" style={{ backgroundColor: NAVY }}>
       <div className="mx-auto max-w-7xl px-6 py-16">
         <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-4">
           {/* Company */}
           <div>
-            <div className="mb-5 flex items-center gap-3">
-              <div
-                className="flex h-9 w-9 items-center justify-center rounded-lg"
-                style={{ backgroundColor: TEAL }}
-              >
-                <Building className="h-4.5 w-4.5 text-white" />
-              </div>
-              <div>
-                <span className="block text-lg font-bold text-white">
-                  Makopa Bau
-                </span>
-                <span className="block text-[10px] font-medium tracking-widest text-slate-500 uppercase">
-                  GmbH
-                </span>
-              </div>
-            </div>
+            <Logo className="h-10" />
             <p className="mb-5 text-sm leading-relaxed">
               Ihr zuverlässiger Partner im Handwerk. Seit über 15 Jahren setzen
               wir auf Qualität und Kundenzufriedenheit.
             </p>
             <div className="space-y-2 text-sm">
               <div className="flex items-center gap-2">
-                <MapPin className="h-3.5 w-3.5" style={{ color: TEAL }} />
-                Musterstraße 123, 12345 Musterstadt
+                <MapPin className="h-3.5 w-3.5 text-primary" />
+                Wolfhelmstr. 36, 50259 Pulheim
               </div>
               <div className="flex items-center gap-2">
-                <Phone className="h-3.5 w-3.5" style={{ color: TEAL }} />
-                +49 (0) 123 456789
+                <Phone className="h-3.5 w-3.5 text-primary" />
+                +49 (0) 2238 9356034
               </div>
               <div className="flex items-center gap-2">
-                <Mail className="h-3.5 w-3.5" style={{ color: TEAL }} />
-                info@makopa-bau.de
+                <Mail className="h-3.5 w-3.5 text-primary" />
+                kontakt@makopa-bau.de
               </div>
             </div>
           </div>
 
           {/* Business areas */}
           <div>
-            <h4
-              className="mb-4 text-sm font-bold tracking-wider uppercase"
-              style={{ color: TEAL_LIGHT }}
-            >
+            <h4 className="mb-4 text-sm font-bold tracking-wider text-primary uppercase">
               Geschäftsbereiche
             </h4>
             <ul className="space-y-2.5 text-sm">
@@ -95,10 +76,7 @@ export function Footer() {
 
           {/* Quick links */}
           <div>
-            <h4
-              className="mb-4 text-sm font-bold tracking-wider uppercase"
-              style={{ color: TEAL_LIGHT }}
-            >
+            <h4 className="mb-4 text-sm font-bold tracking-wider text-primary uppercase">
               Schnellzugriff
             </h4>
             <ul className="space-y-2.5 text-sm">
@@ -139,43 +117,25 @@ export function Footer() {
 
           {/* Hours */}
           <div>
-            <h4
-              className="mb-4 text-sm font-bold tracking-wider uppercase"
-              style={{ color: TEAL_LIGHT }}
-            >
-              Öffnungszeiten
+            <h4 className="mb-4 text-sm font-bold tracking-wider text-primary uppercase">
+              Öffnungszeiten Verwaltung
             </h4>
             <div className="space-y-2 text-sm">
               <div className="flex justify-between">
-                <span>Mo – Fr:</span>
-                <span>07:00 – 17:00</span>
+                <span>Mittwoch:</span>
+                <span>14:00 – 17:00</span>
               </div>
               <div className="flex justify-between">
-                <span>Samstag:</span>
-                <span>08:00 – 14:00</span>
-              </div>
-              <div className="flex justify-between">
-                <span>Sonntag:</span>
-                <span>Geschlossen</span>
-              </div>
-              <div
-                className="mt-4 rounded-lg p-3 text-center"
-                style={{ backgroundColor: NAVY_LIGHT }}
-              >
-                <span
-                  className="text-sm font-semibold"
-                  style={{ color: TEAL_LIGHT }}
-                >
-                  Notdienst 24/7
-                </span>
+                <span>Freitag:</span>
+                <span>09:00 – 15:30</span>
               </div>
             </div>
           </div>
         </div>
       </div>
 
-      <div style={{ borderTop: "1px solid rgba(255,255,255,0.06)" }}>
-        <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 px-6 py-6 text-xs text-slate-500 md:flex-row">
+      <div className="border-t border-white/10">
+        <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 px-6 py-6 text-xs text-slate-400 md:flex-row">
           <span>
             &copy; {new Date().getFullYear()} Makopa Bau GmbH. Alle Rechte
             vorbehalten.
