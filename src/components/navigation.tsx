@@ -65,16 +65,16 @@ export function Navigation() {
 
       {/* Main nav — white, clean */}
       <div className="border-b border-slate-200/60 bg-white/98 backdrop-blur-lg">
-        <div className="mx-auto flex h-[68px] max-w-7xl items-center justify-between px-6">
+        <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-6">
           <Link href="/" className="flex items-center gap-3">
-            <Logo className="h-10" />
+            <Logo className="h-12" />
           </Link>
 
           {/* Desktop Navigation */}
           <nav className="hidden items-center gap-1 lg:flex">
             <Link
               href="/"
-              className="rounded-md px-3.5 py-2 text-sm font-medium text-slate-600 transition-colors hover:bg-slate-50 hover:text-slate-900"
+              className="rounded-md px-4 py-2 text-[15px] font-medium text-slate-600 transition-colors hover:bg-slate-50 hover:text-slate-900"
             >
               Home
             </Link>
@@ -83,7 +83,7 @@ export function Navigation() {
             <NavigationMenu>
               <NavigationMenuList>
                 <NavigationMenuItem>
-                  <NavigationMenuTrigger className="h-auto rounded-md bg-transparent px-3.5 py-2 text-sm font-medium text-slate-600 shadow-none transition-colors hover:bg-slate-50 hover:text-slate-900 focus:bg-slate-50 data-[state=open]:bg-slate-50">
+                  <NavigationMenuTrigger className="h-auto rounded-md bg-transparent px-4 py-2 text-[15px] font-medium text-slate-600 shadow-none transition-colors hover:bg-slate-50 hover:text-slate-900 focus:bg-slate-50 data-[state=open]:bg-slate-50">
                     Leistungen
                   </NavigationMenuTrigger>
                   <NavigationMenuContent>
@@ -108,21 +108,15 @@ export function Navigation() {
 
             <Link
               href="/team"
-              className="rounded-md px-3.5 py-2 text-sm font-medium text-slate-600 transition-colors hover:bg-slate-50 hover:text-slate-900"
+              className="rounded-md px-4 py-2 text-[15px] font-medium text-slate-600 transition-colors hover:bg-slate-50 hover:text-slate-900"
             >
               Team
             </Link>
             <Link
               href="/kontakt"
-              className="rounded-md px-3.5 py-2 text-sm font-medium text-slate-600 transition-colors hover:bg-slate-50 hover:text-slate-900"
+              className="rounded-md px-4 py-2 text-[15px] font-medium text-slate-600 transition-colors hover:bg-slate-50 hover:text-slate-900"
             >
               Kontakt
-            </Link>
-            <Link
-              href="/kontakt"
-              className="ml-3 bg-primary rounded-lg px-5 py-2.5 text-sm font-semibold text-white transition-all hover:opacity-90"
-            >
-              Angebot anfordern
             </Link>
           </nav>
 

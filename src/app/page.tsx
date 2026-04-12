@@ -69,7 +69,7 @@ const businessAreas = [
     icon: Warehouse,
     href: "/heizung",
     highlights: [
-      { icon: KeyRound, text: "Vermietung & Einrichtung" },
+      { icon: KeyRound, text: "BE-Vermietung & Einrichtung" },
       { icon: Ruler, text: "Vermessungskonstruktionen" },
       { icon: ClipboardCheck, text: "Genehmigungsmanagement" },
     ],

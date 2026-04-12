@@ -24,20 +24,20 @@ const TEAL = "#0097A7";
 
 const leadership = [
   {
-    name: "Marcus Kowalski",
+    name: "Marc Berger",
     position: "Geschäftsführer",
     description:
-      "Mit über 20 Jahren Erfahrung im Bauwesen leitet Marcus das Unternehmen mit Leidenschaft und Expertise.",
-    specialties: ["Unternehmensführung", "Projektleitung", "Kundenberatung"],
+      "Marc koordiniert unsere Teams und sorgt für reibungslose Projektabläufe in allen Geschäftsbereichen.",
+    specialties: ["Teamführung", "Qualitätssicherung", "Projektmanagement"],
     image: "👨‍💼",
   },
   {
-    name: "Petra Müller",
-    position: "Prokuristin & Teamleitung",
+    name: "Johannes Bruns",
+    position: "Geschäftsführer",
     description:
-      "Petra koordiniert unsere Teams und sorgt für reibungslose Projektabläufe in allen Geschäftsbereichen.",
-    specialties: ["Teamführung", "Qualitätssicherung", "Projektmanagement"],
-    image: "👩‍💼",
+      "Mit über 20 Jahren Erfahrung im Bauwesen leitet Johannes das Unternehmen mit Leidenschaft und Expertise.",
+    specialties: ["Unternehmensführung", "Projektleitung", "Kundenberatung"],
+    image: "👨‍💼",
   },
 ];
 
@@ -170,27 +170,6 @@ export default function TeamPage() {
               was wir sind — ein zuverlässiger Partner mit Leidenschaft für das
               Handwerk.
             </motion.p>
-
-            <motion.div
-              initial={{ opacity: 0, y: 25 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-              className="flex flex-wrap justify-center gap-4"
-            >
-              <Link
-                href="/kontakt"
-                className="inline-flex items-center gap-2 rounded-lg bg-primary px-7 py-3.5 text-sm font-semibold text-white shadow-lg shadow-primary/30 transition-all hover:shadow-xl hover:brightness-110"
-              >
-                Teil unseres Teams werden
-                <ArrowRight className="h-4 w-4" />
-              </Link>
-              <Link
-                href="#geschaeftsfuehrung"
-                className="inline-flex items-center gap-2 rounded-lg border border-white/15 px-7 py-3.5 text-sm font-semibold text-white/80 transition-all hover:border-white/30 hover:bg-white/5 hover:text-white"
-              >
-                Team kennenlernen
-              </Link>
-            </motion.div>
           </div>
         </div>
       </section>
@@ -255,77 +234,8 @@ export default function TeamPage() {
         </div>
       </section>
 
-      {/* ── Departments ── */}
-      <section className="border-t border-border bg-slate-50 py-20 md:py-24">
-        <div className="mx-auto max-w-7xl px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="mb-16 text-center"
-          >
-            <h2 className="mb-4 text-3xl font-bold tracking-tight text-foreground md:text-4xl">
-              Unsere Fachbereiche
-            </h2>
-            <p className="mx-auto max-w-2xl text-muted-foreground">
-              Erfahrene Spezialisten in allen Bereichen unserer Tätigkeit sorgen
-              für erstklassige Ergebnisse.
-            </p>
-          </motion.div>
-
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
-            {departments.map((dept, i) => (
-              <motion.div
-                key={dept.title}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: i * 0.1 }}
-                className="group relative overflow-hidden rounded-xl border border-border bg-white p-7 transition-all hover:border-slate-300 hover:shadow-xl hover:shadow-slate-200/50"
-              >
-                <div className="absolute top-0 right-0 left-0 h-1 bg-primary transition-all group-hover:h-1.5" />
-                <div className="mb-1 flex items-start justify-between">
-                  <h3 className="text-lg font-bold text-foreground">
-                    {dept.title}
-                  </h3>
-                  <span className="rounded-full bg-primary/10 px-3 py-1 text-xs font-semibold text-primary">
-                    {dept.teamSize}
-                  </span>
-                </div>
-                <p className="mb-5 text-sm leading-relaxed text-muted-foreground">
-                  {dept.description}
-                </p>
-                <div className="mb-4">
-                  <h4 className="mb-2 text-sm font-semibold text-foreground">
-                    Expertise:
-                  </h4>
-                  <div className="flex flex-wrap gap-2">
-                    {dept.expertise.map((skill) => (
-                      <span
-                        key={skill}
-                        className="rounded-lg bg-slate-100 px-2.5 py-1 text-xs text-slate-600"
-                      >
-                        {skill}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-                <div className="border-t border-border pt-4">
-                  <p className="text-sm text-muted-foreground">
-                    <span className="font-semibold text-foreground">
-                      Teamleitung:
-                    </span>{" "}
-                    {dept.lead}
-                  </p>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* ── Values ── */}
-      <section className="bg-white py-20 md:py-24">
+      <section className="bg-slate-50 py-20 md:py-24">
         <div className="mx-auto max-w-7xl px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -370,52 +280,6 @@ export default function TeamPage() {
         </div>
       </section>
 
-      {/* ── CTA ── */}
-      <section className="relative overflow-hidden border-t border-border bg-white py-20 md:py-24">
-        <div
-          className="absolute inset-0 opacity-[0.035]"
-          style={{
-            backgroundImage: `radial-gradient(circle, var(--primary) 1.2px, transparent 1.2px)`,
-            backgroundSize: "32px 32px",
-          }}
-        />
-        <div className="pointer-events-none absolute -top-32 left-1/2 h-64 w-[600px] -translate-x-1/2 rounded-full bg-primary/5 blur-3xl" />
-
-        <div className="relative mx-auto max-w-4xl px-6 text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-          >
-            <span className="mb-4 inline-block text-sm font-semibold tracking-wider text-primary uppercase">
-              Kontakt
-            </span>
-            <h2 className="mb-4 text-3xl font-bold tracking-tight text-foreground md:text-4xl">
-              Lernen Sie uns persönlich kennen
-            </h2>
-            <p className="mx-auto mb-10 max-w-2xl text-lg text-muted-foreground">
-              Vereinbaren Sie einen Termin für ein persönliches Gespräch. Wir
-              freuen uns darauf, Sie kennenzulernen und Ihr Projekt zu besprechen.
-            </p>
-            <div className="flex flex-wrap justify-center gap-4">
-              <Link
-                href="/kontakt"
-                className="inline-flex items-center gap-2 rounded-lg bg-primary px-7 py-3.5 text-sm font-semibold text-white shadow-lg shadow-primary/25 transition-all hover:shadow-xl hover:brightness-110"
-              >
-                Termin vereinbaren
-                <ArrowRight className="h-4 w-4" />
-              </Link>
-              <a
-                href="tel:+4922389356034"
-                className="inline-flex items-center gap-2 rounded-lg border border-border px-7 py-3.5 text-sm font-semibold text-foreground transition-all hover:border-primary/30 hover:bg-primary/5"
-              >
-                <Phone className="h-4 w-4 text-primary" />
-                +49 (0) 2238 9356034
-              </a>
-            </div>
-          </motion.div>
-        </div>
-      </section>
     </main>
   );
 }
