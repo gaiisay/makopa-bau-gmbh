@@ -41,39 +41,16 @@ const leadership = [
   },
 ];
 
-const departments = [
-  {
-    title: "Baustellenmanagement",
-    description:
-      "Organisation, Logistik und Schnittstellenkoordination für einen reibungslosen Bauablauf.",
-    teamSize: "8 Mitarbeiter",
-    expertise: ["Baustellenorganisation", "Logistik", "Arbeitsschutz"],
-    lead: "Stefan Weber",
-  },
-  {
-    title: "Erdarbeiten & Außenanlagen",
-    description:
-      "Von Baugrube und Entwässerung bis zu Pflasterarbeiten und Wiederherstellung.",
-    teamSize: "12 Mitarbeiter",
-    expertise: ["Erdarbeiten", "Entwässerung", "Pflasterarbeiten"],
-    lead: "Andrea Schmidt",
-  },
-  {
-    title: "Abbruch & Speziallösungen",
-    description:
-      "Strukturierter Rückbau, Entkernung und individuelle Sonderlösungen.",
-    teamSize: "10 Mitarbeiter",
-    expertise: ["Abbrucharbeiten", "Entkernung", "Schadstoffsanierung"],
-    lead: "Michael Bauer",
-  },
-  {
-    title: "Baustellenservices & Vermietung",
-    description:
-      "Baustelleneinrichtung, Genehmigungen und ausgewählte Geräte für strukturierte Projekte.",
-    teamSize: "6 Mitarbeiter",
-    expertise: ["Vermietung", "Vermessung", "Genehmigungen"],
-    lead: "Thomas Fischer",
-  },
+const teamMembers = [
+  { name: "Daniela Ronken", role: "Verwaltung" },
+  { name: "Finn Schüller", role: "Betriebshof" },
+  { name: "Anatolii Petrashchuk", role: "" },
+  { name: "Angelo Profeta", role: "" },
+  { name: "Artem Mishchenko", role: "" },
+  { name: "Claus Wilczek", role: "" },
+  { name: "Fabian Djied", role: "" },
+  { name: "Patrick Jahn", role: "" },
+  { name: "Peter Berger", role: "" },
 ];
 
 const values = [
@@ -203,7 +180,9 @@ export default function TeamPage() {
                 className="group relative overflow-hidden rounded-xl border border-border bg-white p-7 text-center transition-all hover:border-slate-300 hover:shadow-xl hover:shadow-slate-200/50"
               >
                 <div className="absolute top-0 right-0 left-0 h-1 bg-primary transition-all group-hover:h-1.5" />
-                <div className="mb-4 text-6xl">{leader.image}</div>
+                <div className="mx-auto mb-4 flex h-20 w-20 items-center justify-center rounded-full bg-primary/10">
+                  <Users className="h-9 w-9 text-primary" />
+                </div>
                 <h3 className="mb-1 text-2xl font-bold text-foreground">
                   {leader.name}
                 </h3>
@@ -234,8 +213,54 @@ export default function TeamPage() {
         </div>
       </section>
 
+      {/* ── Team ── */}
+      <section className="border-t border-border bg-slate-50 py-20 md:py-24">
+        <div className="mx-auto max-w-7xl px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="mb-16 text-center"
+          >
+            <h2 className="mb-4 text-3xl font-bold tracking-tight text-foreground md:text-4xl">
+              Unser Team
+            </h2>
+            <p className="mx-auto max-w-2xl text-muted-foreground">
+              Engagierte Fachkräfte, die gemeinsam jedes Projekt zum Erfolg
+              führen.
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
+            {teamMembers.map((member, i) => (
+              <motion.div
+                key={member.name}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: i * 0.05 }}
+                className="group relative overflow-hidden rounded-xl border border-border bg-white p-5 text-center transition-all hover:border-slate-300 hover:shadow-lg hover:shadow-slate-200/50"
+              >
+                <div className="absolute top-0 right-0 left-0 h-1 bg-primary transition-all group-hover:h-1.5" />
+                <div className="mx-auto mb-3 flex h-16 w-16 items-center justify-center rounded-full bg-primary/10">
+                  <Users className="h-7 w-7 text-primary" />
+                </div>
+                <h3 className="text-sm font-bold text-foreground">
+                  {member.name}
+                </h3>
+                {member.role && (
+                  <p className="mt-1 text-xs font-medium text-muted-foreground">
+                    {member.role}
+                  </p>
+                )}
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* ── Values ── */}
-      <section className="bg-slate-50 py-20 md:py-24">
+      <section className="bg-white py-20 md:py-24">
         <div className="mx-auto max-w-7xl px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
