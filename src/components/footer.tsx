@@ -28,7 +28,7 @@ export function Footer() {
               </div>
               <div className="flex items-center gap-2">
                 <Mail className="h-3.5 w-3.5 text-primary" />
-                kontakt@makopa-bau.de
+                kontakt@makopa.de
               </div>
             </div>
           </div>
@@ -128,6 +128,15 @@ export function Footer() {
               <div className="flex justify-between">
                 <span>Freitag:</span>
                 <span>09:00 – 15:30</span>
+              </div>
+            </div>
+            <h4 className="mt-5 mb-4 text-sm font-bold tracking-wider text-primary uppercase">
+              Baustellenbetrieb
+            </h4>
+            <div className="space-y-2 text-sm">
+              <div className="flex justify-between">
+                <span>Mo – Fr:</span>
+                <span>07:00 – 17:00</span>
               </div>
             </div>
           </div>

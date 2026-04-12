@@ -96,10 +96,10 @@ export default function ImpressumPage() {
                 <p>
                   E-Mail:{" "}
                   <a
-                    href="mailto:kontakt@makopa-bau.de"
+                    href="mailto:kontakt@makopa.de"
                     className="text-primary hover:underline"
                   >
-                    kontakt@makopa-bau.de
+                    kontakt@makopa.de
                   </a>
                 </p>
               </div>

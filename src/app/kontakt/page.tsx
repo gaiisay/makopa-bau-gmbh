@@ -25,19 +25,19 @@ const contactInfo = [
     linkLabel: "Jetzt anrufen",
   },
   {
-    icon: Mail,
-    title: "E-Mail",
-    content: "kontakt@makopa-bau.de",
-    action: "mailto:kontakt@makopa-bau.de",
-    linkLabel: "E-Mail senden",
-  },
-  {
     icon: MapPin,
     title: "Adresse",
     content: "Wolfhelmstr. 36\n50259 Pulheim",
     action: "https://maps.google.com/?q=Wolfhelmstr.+36,+50259+Pulheim",
     linkLabel: "Route planen",
   },
+];
+
+const emailAddresses = [
+  { label: "Kontakt", email: "kontakt@makopa.de" },
+  { label: "Allgemeine Anfragen", email: "info@makopa.de" },
+  { label: "Verwaltung", email: "verwaltung@makopa.de" },
+  { label: "Lieferantenrechnungen", email: "rechnungen@makopa.de" },
 ];
 
 const businessHours = [
@@ -100,7 +100,7 @@ export default function KontaktPage() {
               className="flex flex-wrap justify-center gap-4"
             >
               <a
-                href="mailto:kontakt@makopa-bau.de"
+                href="mailto:kontakt@makopa.de"
                 className="inline-flex items-center gap-2 rounded-lg bg-primary px-7 py-3.5 text-sm font-semibold text-white shadow-lg shadow-primary/30 transition-all hover:shadow-xl hover:brightness-110"
               >
                 <Mail className="h-4 w-4" />
@@ -169,6 +169,45 @@ export default function KontaktPage() {
                 </motion.a>
               );
             })}
+
+            {/* E-Mail-Adressen — eine Karte */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4, delay: 0.2 }}
+              className="group relative overflow-hidden rounded-xl border border-border bg-white p-6 transition-all hover:border-slate-300 hover:shadow-xl hover:shadow-slate-200/50"
+            >
+              <div className="absolute top-0 right-0 left-0 h-1 bg-primary transition-all group-hover:h-1.5" />
+              <div className="flex items-start gap-4">
+                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-primary/10">
+                  <Mail className="h-5 w-5 text-primary" />
+                </div>
+                <div className="flex-1">
+                  <h3 className="mb-3 text-base font-bold text-foreground">
+                    E-Mail
+                  </h3>
+                  <div className="space-y-2">
+                    {emailAddresses.map((item) => (
+                      <div
+                        key={item.email}
+                        className="flex items-center justify-between"
+                      >
+                        <span className="text-sm text-muted-foreground">
+                          {item.label}
+                        </span>
+                        <a
+                          href={`mailto:${item.email}`}
+                          className="text-sm font-medium text-primary transition-colors hover:underline"
+                        >
+                          {item.email}
+                        </a>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </motion.div>
           </div>
 
           {/* Business Hours */}
@@ -180,14 +219,18 @@ export default function KontaktPage() {
             className="group relative mt-6 overflow-hidden rounded-xl border border-border bg-white p-6"
           >
             <div className="absolute top-0 right-0 left-0 h-1 bg-primary transition-all group-hover:h-1.5" />
-            <div className="mb-4 flex items-center gap-3">
+            <div className="mb-5 flex items-center gap-3">
               <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-primary/10">
                 <Clock className="h-5 w-5 text-primary" />
               </div>
               <h3 className="text-base font-bold text-foreground">
-                Öffnungszeiten Verwaltung
+                Öffnungszeiten
               </h3>
             </div>
+
+            <h4 className="mb-3 text-sm font-semibold text-foreground">
+              Verwaltung
+            </h4>
             <div className="space-y-3">
               {businessHours.map((item) => (
                 <div
@@ -202,6 +245,20 @@ export default function KontaktPage() {
                   </span>
                 </div>
               ))}
+            </div>
+
+            <div className="mt-5 border-t border-border pt-5">
+              <h4 className="mb-3 text-sm font-semibold text-foreground">
+                Baustellenbetrieb
+              </h4>
+              <div className="flex justify-between">
+                <span className="text-sm font-medium text-foreground">
+                  Montag – Freitag
+                </span>
+                <span className="text-sm text-muted-foreground">
+                  07:00 – 17:00
+                </span>
+              </div>
             </div>
           </motion.div>
         </div>

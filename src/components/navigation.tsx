@@ -49,11 +49,11 @@ export function Navigation() {
               +49 (0) 2238 9356034
             </a>
             <a
-              href="mailto:kontakt@makopa-bau.de"
+              href="mailto:kontakt@makopa.de"
               className="hidden items-center gap-1.5 transition-colors hover:text-white md:flex"
             >
               <Mail className="h-3 w-3" />
-              kontakt@makopa-bau.de
+              kontakt@makopa.de
             </a>
           </div>
           <div className="hidden items-center gap-1.5 md:flex">
