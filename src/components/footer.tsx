@@ -12,10 +12,9 @@ export function Footer() {
         <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-4">
           {/* Company */}
           <div>
-            <Logo className="h-10" />
+            <Logo className="h-12" />
             <p className="mb-5 text-sm leading-relaxed">
-              Ihr zuverlässiger Partner im Handwerk. Seit über 15 Jahren setzen
-              wir auf Qualität und Kundenzufriedenheit.
+              Ihr zuverlässiger Partner im Handwerk. Mit über 10 Jahren Erfahrung am Bau setzen wir auf Qualität und Kundenzufriedenheit
             </p>
             <div className="space-y-2 text-sm">
               <div className="flex items-center gap-2">
@@ -44,7 +43,7 @@ export function Footer() {
                   href="/logistik"
                   className="transition-colors hover:text-white"
                 >
-                  Logistik
+                  Baustellenmanagement
                 </Link>
               </li>
               <li>
@@ -52,15 +51,7 @@ export function Footer() {
                   href="/gala-bau"
                   className="transition-colors hover:text-white"
                 >
-                  Gala Bau
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/heizung"
-                  className="transition-colors hover:text-white"
-                >
-                  Heizung
+                  Erdarbeiten & Außenanlagen
                 </Link>
               </li>
               <li>
@@ -68,7 +59,15 @@ export function Footer() {
                   href="/abbruch-umbau"
                   className="transition-colors hover:text-white"
                 >
-                  Abbruch & Umbau
+                  Speziallösungen / Abbruch
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/heizung"
+                  className="transition-colors hover:text-white"
+                >
+                  Vermietung
                 </Link>
               </li>
             </ul>

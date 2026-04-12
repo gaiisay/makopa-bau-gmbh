@@ -26,7 +26,7 @@ const NAVY_LIGHT = "#224B7A";
 
 const leistungen = [
   { name: "Baustellenmanagement", href: "/logistik" },
-  { name: "Außenanlagen", href: "/gala-bau" },
+  { name: "Erdarbeiten & Außenanlagen", href: "/gala-bau" },
   { name: "Speziallösungen / Abbruch", href: "/abbruch-umbau" },
   { name: "Vermietung", href: "/heizung" },
 ];
@@ -107,6 +107,12 @@ export function Navigation() {
             </NavigationMenu>
 
             <Link
+              href="/projekte"
+              className="rounded-md px-4 py-2 text-[15px] font-medium text-slate-600 transition-colors hover:bg-slate-50 hover:text-slate-900"
+            >
+              Projekte
+            </Link>
+            <Link
               href="/team"
               className="rounded-md px-4 py-2 text-[15px] font-medium text-slate-600 transition-colors hover:bg-slate-50 hover:text-slate-900"
             >
@@ -173,6 +179,13 @@ export function Navigation() {
             </div>
           )}
 
+          <Link
+            href="/projekte"
+            className="block py-2.5 text-sm font-medium text-slate-600"
+            onClick={() => setMobileOpen(false)}
+          >
+            Projekte
+          </Link>
           <Link
             href="/team"
             className="block py-2.5 text-sm font-medium text-slate-600"

@@ -189,7 +189,7 @@ export default function TeamPage() {
                 <p className="mb-4 text-sm font-semibold text-primary">
                   {leader.position}
                 </p>
-                <p className="mb-5 text-sm leading-relaxed text-muted-foreground">
+                {/* <p className="mb-5 text-sm leading-relaxed text-muted-foreground">
                   {leader.description}
                 </p>
                 <div>
@@ -206,7 +206,7 @@ export default function TeamPage() {
                       </span>
                     ))}
                   </div>
-                </div>
+                </div> */}
               </motion.div>
             ))}
           </div>

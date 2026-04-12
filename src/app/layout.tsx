@@ -5,9 +5,9 @@ import { Source_Sans_3 } from "next/font/google";
 import { LayoutShell } from "@/components/layout-shell";
 
 export const metadata: Metadata = {
-  title: "Makopa Bau GmbH - Ihr zuverlässiger Partner im Handwerk",
+  title: "Makopa Bau GmbH",
   description:
-    "Makopa Bau GmbH bietet professionelle Dienstleistungen in den Bereichen Logistik, Gala Bau, Heizung, Abbruch und Umbau. Für Privatkunden, Architekten und Großkunden.",
+    "Makopa Bau GmbH – Ihr Partner für Baustellenmanagement, Erdarbeiten & Außenanlagen, Abbruch und Vermietung in Köln, Pulheim und Umgebung.",
   icons: [{ rel: "icon", url: "/favicon.ico" }],
 };
 

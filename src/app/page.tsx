@@ -77,10 +77,9 @@ const businessAreas = [
 ];
 
 const stats = [
-  { value: "15+", label: "Jahre Erfahrung" },
-  { value: "36+", label: "Mitarbeiter" },
-  { value: "500+", label: "Zufriedene Kunden" },
-  { value: "1000+", label: "Projekte abgeschlossen" },
+  { value: "9", label: "Mitarbeiter" },
+  { value: "18", label: "Projekte abgeschlossen (seit Mai 2024)" },
+  { value: "11+", label: "Premium Partner" },
 ];
 
 /* ─── Colors ──────────────────────────────────────────────────── */
@@ -346,7 +345,7 @@ export default function HomePage() {
       {/* ── Stats ── */}
       <section className="border-b border-border bg-white">
         <div className="mx-auto max-w-7xl px-6 py-14">
-          <div className="grid grid-cols-2 gap-8 lg:grid-cols-4">
+          <div className="grid grid-cols-2 gap-8 lg:grid-cols-3">
             {stats.map((stat, i) => (
               <motion.div
                 key={stat.label}
