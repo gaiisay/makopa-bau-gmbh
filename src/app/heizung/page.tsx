@@ -1,365 +1,668 @@
+"use client";
+
 import Link from "next/link";
-import { Button } from "@/components/ui/button";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
+import { motion } from "motion/react";
 import {
   Flame,
   Thermometer,
   Zap,
   Leaf,
-  CheckCircle,
+  CheckCircle2,
   Phone,
   Wrench,
   Timer,
+  ArrowRight,
+  BadgeEuro,
 } from "lucide-react";
 
+/* ─── Colors ──────────────────────────────────────────────────── */
+const NAVY = "#0C2340";
+const NAVY_LIGHT = "#143054";
+const TEAL = "#0097A7";
+const TEAL_LIGHT = "#00ACC1";
+const TEAL_PALE = "#E0F7FA";
+const OFF_WHITE = "#F8FAFC";
+
+/* ─── Data ────────────────────────────────────────────────────── */
+
+const services = [
+  {
+    title: "Heizungsinstallation",
+    icon: Flame,
+    description:
+      "Moderne Heizungsanlagen für Neubauten und Sanierungen - effizient und umweltfreundlich.",
+    features: [
+      "Gas-Brennwertkessel",
+      "Wärmepumpen",
+      "Pelletheizungen",
+      "Solarthermie",
+    ],
+  },
+  {
+    title: "Wartung & Service",
+    icon: Wrench,
+    description:
+      "Regelmäßige Wartung und schneller Reparaturservice für alle Heizungstypen.",
+    features: [
+      "Wartungsverträge",
+      "24h-Notdienst",
+      "Reparaturen",
+      "Ersatzteilservice",
+    ],
+  },
+  {
+    title: "Modernisierung",
+    icon: Zap,
+    description:
+      "Heizungsmodernisierung für mehr Effizienz und geringere Heizkosten.",
+    features: [
+      "Energieberatung",
+      "Fördermittelberatung",
+      "Hybridlösungen",
+      "Smart Home Integration",
+    ],
+  },
+];
+
+const technologies = [
+  {
+    icon: Flame,
+    title: "Gas-Brennwert",
+    description: "Hocheffiziente Gasheizungen mit Brennwerttechnik",
+    efficiency: "bis zu 98%",
+  },
+  {
+    icon: Zap,
+    title: "Wärmepumpe",
+    description: "Umweltfreundliche Wärmeerzeugung aus der Luft",
+    efficiency: "COP bis 5,5",
+  },
+  {
+    icon: Leaf,
+    title: "Pelletheizung",
+    description: "CO2-neutrale Heizung mit Holzpellets",
+    efficiency: "bis zu 95%",
+  },
+  {
+    icon: Thermometer,
+    title: "Hybridlösungen",
+    description: "Kombination verschiedener Heiztechnologien",
+    efficiency: "optimal",
+  },
+];
+
+const advantages = [
+  {
+    icon: Timer,
+    title: "Schnelle Installation",
+    description: "Professionelle und termingerechte Montage",
+  },
+  {
+    icon: Wrench,
+    title: "Fachkompetenz",
+    description: "Zertifizierte Heizungsinstallateure",
+  },
+  {
+    icon: Leaf,
+    title: "Umweltfreundlich",
+    description: "Moderne und nachhaltige Heiztechnik",
+  },
+  {
+    icon: CheckCircle2,
+    title: "Garantie",
+    description: "Langfristige Garantie auf alle Arbeiten",
+  },
+];
+
+const processSteps = [
+  {
+    step: "01",
+    title: "Beratung",
+    description: "Kostenlose Beratung und Vor-Ort-Besichtigung",
+  },
+  {
+    step: "02",
+    title: "Planung",
+    description: "Individuelle Planung und Angebotserstellung",
+  },
+  {
+    step: "03",
+    title: "Installation",
+    description: "Professionelle Installation durch Fachkräfte",
+  },
+  {
+    step: "04",
+    title: "Service",
+    description: "Wartung und Service für lange Lebensdauer",
+  },
+];
+
+const foerderungen = [
+  { value: "bis 40%", label: "BEG-Förderung für Wärmepumpen" },
+  { value: "bis 20%", label: "Für Gas-Brennwertkessel" },
+  { value: "bis 35%", label: "Für Biomasse-Heizungen" },
+];
+
+/* ─── Page ────────────────────────────────────────────────────── */
+
 export default function HeizungPage() {
-  const services = [
-    {
-      title: "Heizungsinstallation",
-      description:
-        "Moderne Heizungsanlagen für Neubauten und Sanierungen - effizient und umweltfreundlich.",
-      features: [
-        "Gas-Brennwertkessel",
-        "Wärmepumpen",
-        "Pelletheizungen",
-        "Solarthermie",
-      ],
-    },
-    {
-      title: "Wartung & Service",
-      description:
-        "Regelmäßige Wartung und schneller Reparaturservice für alle Heizungstypen.",
-      features: [
-        "Wartungsverträge",
-        "24h-Notdienst",
-        "Reparaturen",
-        "Ersatzteilservice",
-      ],
-    },
-    {
-      title: "Modernisierung",
-      description:
-        "Heizungsmodernisierung für mehr Effizienz und geringere Heizkosten.",
-      features: [
-        "Energieberatung",
-        "Fördermittelberatung",
-        "Hybridlösungen",
-        "Smart Home Integration",
-      ],
-    },
-  ];
-
-  const technologies = [
-    {
-      icon: Flame,
-      title: "Gas-Brennwert",
-      description: "Hocheffiziente Gasheizungen mit Brennwerttechnik",
-      efficiency: "bis zu 98%",
-    },
-    {
-      icon: Zap,
-      title: "Wärmepumpe",
-      description: "Umweltfreundliche Wärmeerzeugung aus der Luft",
-      efficiency: "COP bis 5,5",
-    },
-    {
-      icon: Leaf,
-      title: "Pelletheizung",
-      description: "CO2-neutrale Heizung mit Holzpellets",
-      efficiency: "bis zu 95%",
-    },
-    {
-      icon: Thermometer,
-      title: "Hybridlösungen",
-      description: "Kombination verschiedener Heiztechnologien",
-      efficiency: "optimal",
-    },
-  ];
-
-  const advantages = [
-    {
-      icon: Timer,
-      title: "Schnelle Installation",
-      description: "Professionelle und termingerechte Montage",
-    },
-    {
-      icon: Wrench,
-      title: "Fachkompetenz",
-      description: "Zertifizierte Heizungsinstallateure",
-    },
-    {
-      icon: Leaf,
-      title: "Umweltfreundlich",
-      description: "Moderne und nachhaltige Heiztechnik",
-    },
-    {
-      icon: CheckCircle,
-      title: "Garantie",
-      description: "Langfristige Garantie auf alle Arbeiten",
-    },
-  ];
-
   return (
-    <main>
-      {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-orange-600 to-red-600 text-white">
-        <div className="absolute inset-0 bg-black/20"></div>
-        <div className="relative container mx-auto px-4 py-24 text-center">
-          <div className="mx-auto mb-6 w-fit rounded-full bg-white/10 p-4">
-            <Flame className="h-12 w-12" />
+    <main className="min-h-screen bg-white">
+      {/* ── Hero ── */}
+      <section
+        className="relative overflow-hidden"
+        style={{ backgroundColor: NAVY }}
+      >
+        {/* Geometric bg pattern */}
+        <div
+          className="absolute inset-0 opacity-[0.07]"
+          style={{
+            backgroundImage: `
+              linear-gradient(30deg, ${TEAL} 12%, transparent 12.5%, transparent 87%, ${TEAL} 87.5%, ${TEAL}),
+              linear-gradient(150deg, ${TEAL} 12%, transparent 12.5%, transparent 87%, ${TEAL} 87.5%, ${TEAL}),
+              linear-gradient(30deg, ${TEAL} 12%, transparent 12.5%, transparent 87%, ${TEAL} 87.5%, ${TEAL}),
+              linear-gradient(150deg, ${TEAL} 12%, transparent 12.5%, transparent 87%, ${TEAL} 87.5%, ${TEAL}),
+              linear-gradient(60deg, rgba(0,151,167,0.3) 25%, transparent 25.5%, transparent 75%, rgba(0,151,167,0.3) 75%, rgba(0,151,167,0.3)),
+              linear-gradient(60deg, rgba(0,151,167,0.3) 25%, transparent 25.5%, transparent 75%, rgba(0,151,167,0.3) 75%, rgba(0,151,167,0.3))
+            `,
+            backgroundSize: "80px 140px",
+            backgroundPosition:
+              "0 0, 0 0, 40px 70px, 40px 70px, 0 0, 40px 70px",
+          }}
+        />
+
+        {/* Gradient overlay */}
+        <div
+          className="absolute inset-0"
+          style={{
+            background: `linear-gradient(135deg, ${NAVY} 0%, ${NAVY_LIGHT} 50%, ${NAVY} 100%)`,
+            opacity: 0.85,
+          }}
+        />
+
+        <div className="relative mx-auto max-w-7xl px-6 py-20 md:py-28 lg:py-36">
+          <div className="mx-auto max-w-3xl text-center">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-1.5 backdrop-blur-sm"
+            >
+              <Flame className="h-4 w-4" style={{ color: TEAL_LIGHT }} />
+              <span className="text-xs font-medium text-white/70">
+                Heizung & Wärmetechnik
+              </span>
+            </motion.div>
+
+            <motion.h1
+              initial={{ opacity: 0, y: 25 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className="mb-6 text-4xl leading-[1.1] font-bold tracking-tight text-white sm:text-5xl lg:text-[3.5rem]"
+            >
+              Heizung{" "}
+              <span style={{ color: TEAL_LIGHT }}>die wärmt.</span>
+            </motion.h1>
+
+            <motion.p
+              initial={{ opacity: 0, y: 25 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="mx-auto mb-8 max-w-2xl text-lg leading-relaxed text-slate-300"
+            >
+              Installation, Wartung und Modernisierung von Heizungsanlagen.
+              Effiziente und umweltfreundliche Wärmelösungen für Ihr Zuhause.
+            </motion.p>
+
+            <motion.div
+              initial={{ opacity: 0, y: 25 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              className="flex flex-wrap justify-center gap-3"
+            >
+              <Link
+                href="/kontakt"
+                className="inline-flex items-center gap-2 rounded-lg px-6 py-3 text-sm font-semibold text-white shadow-lg transition-all hover:shadow-xl hover:brightness-110"
+                style={{
+                  backgroundColor: TEAL,
+                  boxShadow: "0 10px 30px -5px rgba(0,151,167,0.3)",
+                }}
+              >
+                Heizungsberatung anfordern
+                <ArrowRight className="h-4 w-4" />
+              </Link>
+              <Link
+                href="#leistungen"
+                className="inline-flex items-center gap-2 rounded-lg border border-white/15 px-6 py-3 text-sm font-semibold text-white/80 transition-all hover:border-white/30 hover:bg-white/5 hover:text-white"
+              >
+                Unsere Leistungen
+              </Link>
+            </motion.div>
           </div>
-          <h1 className="mb-6 text-4xl font-bold md:text-6xl">Heizung</h1>
-          <p className="mx-auto mb-8 max-w-3xl text-xl md:text-2xl">
-            Installation, Wartung und Modernisierung von Heizungsanlagen.
-            Effiziente und umweltfreundliche Wärmelösungen für Ihr Zuhause.
-          </p>
-          <Button asChild size="lg" variant="secondary">
-            <Link href="/kontakt">Heizungsberatung anfordern</Link>
-          </Button>
         </div>
       </section>
 
-      {/* Services */}
-      <section className="py-20">
-        <div className="container mx-auto px-4">
-          <div className="mb-16 text-center">
-            <h2 className="mb-4 text-3xl font-bold md:text-4xl">
+      {/* ── Services ── */}
+      <section
+        id="leistungen"
+        className="py-20 md:py-28"
+        style={{ backgroundColor: OFF_WHITE }}
+      >
+        <div className="mx-auto max-w-7xl px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="mb-16 text-center"
+          >
+            <span
+              className="mb-3 inline-block text-sm font-semibold tracking-wider uppercase"
+              style={{ color: TEAL }}
+            >
+              Leistungen
+            </span>
+            <h2
+              className="mb-4 text-3xl font-bold tracking-tight md:text-4xl"
+              style={{ color: NAVY }}
+            >
               Unsere Heizungsleistungen
             </h2>
-            <p className="text-muted-foreground mx-auto max-w-2xl text-lg">
-              Von der Installation bis zur Wartung - wir sind Ihr kompetenter
+            <p className="mx-auto max-w-2xl text-slate-500">
+              Von der Installation bis zur Wartung — wir sind Ihr kompetenter
               Partner für alle Heizungsthemen.
             </p>
-          </div>
+          </motion.div>
 
-          <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
-            {services.map((service) => (
-              <Card key={service.title} className="h-full">
-                <CardHeader>
-                  <CardTitle className="text-xl">{service.title}</CardTitle>
-                  <CardDescription>{service.description}</CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <ul className="space-y-3">
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
+            {services.map((service, i) => {
+              const Icon = service.icon;
+              return (
+                <motion.div
+                  key={service.title}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: i * 0.1 }}
+                  className="relative h-full overflow-hidden rounded-xl border border-slate-200/80 bg-white p-7 transition-all hover:shadow-xl hover:shadow-slate-200/50"
+                >
+                  {/* Top accent line */}
+                  <div
+                    className="absolute top-0 right-0 left-0 h-1"
+                    style={{ backgroundColor: TEAL }}
+                  />
+                  <div
+                    className="mb-5 flex h-13 w-13 items-center justify-center rounded-xl"
+                    style={{ backgroundColor: TEAL_PALE }}
+                  >
+                    <Icon className="h-6 w-6" style={{ color: TEAL }} />
+                  </div>
+                  <h3
+                    className="mb-2 text-lg font-bold"
+                    style={{ color: NAVY }}
+                  >
+                    {service.title}
+                  </h3>
+                  <p className="mb-5 text-sm leading-relaxed text-slate-500">
+                    {service.description}
+                  </p>
+                  <ul className="space-y-2.5">
                     {service.features.map((feature) => (
-                      <li key={feature} className="flex items-center">
-                        <CheckCircle className="mr-2 h-5 w-5 flex-shrink-0 text-green-500" />
-                        <span>{feature}</span>
+                      <li
+                        key={feature}
+                        className="flex items-center gap-2 text-sm"
+                      >
+                        <CheckCircle2
+                          className="h-4 w-4 flex-shrink-0"
+                          style={{ color: TEAL }}
+                        />
+                        <span className="text-slate-600">{feature}</span>
                       </li>
                     ))}
                   </ul>
-                </CardContent>
-              </Card>
-            ))}
+                </motion.div>
+              );
+            })}
           </div>
         </div>
       </section>
 
-      {/* Technologies */}
-      <section className="bg-gray-50 py-20">
-        <div className="container mx-auto px-4">
-          <div className="mb-16 text-center">
-            <h2 className="mb-4 text-3xl font-bold md:text-4xl">
+      {/* ── Technologies ── */}
+      <section className="bg-white py-20 md:py-28">
+        <div className="mx-auto max-w-7xl px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="mb-16 text-center"
+          >
+            <span
+              className="mb-3 inline-block text-sm font-semibold tracking-wider uppercase"
+              style={{ color: TEAL }}
+            >
+              Technologien
+            </span>
+            <h2
+              className="mb-4 text-3xl font-bold tracking-tight md:text-4xl"
+              style={{ color: NAVY }}
+            >
               Moderne Heiztechnologien
             </h2>
-            <p className="text-muted-foreground mx-auto max-w-2xl text-lg">
+            <p className="mx-auto max-w-2xl text-slate-500">
               Wir installieren die neuesten und effizientesten Heizungssysteme
               für maximalen Komfort.
             </p>
-          </div>
+          </motion.div>
 
-          <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
-            {technologies.map((tech) => {
-              const IconComponent = tech.icon;
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
+            {technologies.map((tech, i) => {
+              const Icon = tech.icon;
               return (
-                <Card key={tech.title} className="h-full text-center">
-                  <CardHeader>
-                    <div className="mx-auto mb-4 w-fit rounded-full bg-orange-100 p-4">
-                      <IconComponent className="h-8 w-8 text-orange-600" />
-                    </div>
-                    <CardTitle className="text-xl">{tech.title}</CardTitle>
-                    <CardDescription>{tech.description}</CardDescription>
-                  </CardHeader>
-                  <CardContent>
-                    <div className="rounded-lg bg-orange-50 p-3">
-                      <span className="text-sm font-medium text-orange-800">
-                        Effizienz: {tech.efficiency}
-                      </span>
-                    </div>
-                  </CardContent>
-                </Card>
+                <motion.div
+                  key={tech.title}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: i * 0.1 }}
+                  className="relative overflow-hidden rounded-xl border border-slate-200/80 bg-white p-7 text-center transition-all hover:shadow-xl hover:shadow-slate-200/50"
+                >
+                  {/* Top accent line */}
+                  <div
+                    className="absolute top-0 right-0 left-0 h-1"
+                    style={{ backgroundColor: TEAL }}
+                  />
+                  <div
+                    className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-xl"
+                    style={{ backgroundColor: TEAL_PALE }}
+                  >
+                    <Icon className="h-6 w-6" style={{ color: TEAL }} />
+                  </div>
+                  <h3
+                    className="mb-2 text-lg font-bold"
+                    style={{ color: NAVY }}
+                  >
+                    {tech.title}
+                  </h3>
+                  <p className="mb-4 text-sm leading-relaxed text-slate-500">
+                    {tech.description}
+                  </p>
+                  <div
+                    className="rounded-lg px-3 py-2"
+                    style={{ backgroundColor: TEAL_PALE }}
+                  >
+                    <span
+                      className="text-sm font-semibold"
+                      style={{ color: TEAL }}
+                    >
+                      Effizienz: {tech.efficiency}
+                    </span>
+                  </div>
+                </motion.div>
               );
             })}
           </div>
         </div>
       </section>
 
-      {/* Advantages */}
-      <section className="py-20">
-        <div className="container mx-auto px-4">
-          <div className="mb-16 text-center">
-            <h2 className="mb-4 text-3xl font-bold md:text-4xl">
+      {/* ── Advantages ── */}
+      <section
+        className="py-20 md:py-28"
+        style={{ backgroundColor: OFF_WHITE }}
+      >
+        <div className="mx-auto max-w-7xl px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="mb-16 text-center"
+          >
+            <span
+              className="mb-3 inline-block text-sm font-semibold tracking-wider uppercase"
+              style={{ color: TEAL }}
+            >
+              Vorteile
+            </span>
+            <h2
+              className="mb-4 text-3xl font-bold tracking-tight md:text-4xl"
+              style={{ color: NAVY }}
+            >
               Ihre Vorteile
             </h2>
-            <p className="text-muted-foreground mx-auto max-w-2xl text-lg">
+            <p className="mx-auto max-w-2xl text-slate-500">
               Warum Sie uns für Ihr Heizungsprojekt wählen sollten.
             </p>
-          </div>
+          </motion.div>
 
-          <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
-            {advantages.map((advantage) => {
-              const IconComponent = advantage.icon;
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
+            {advantages.map((advantage, i) => {
+              const Icon = advantage.icon;
               return (
-                <div key={advantage.title} className="text-center">
-                  <div className="mx-auto mb-4 w-fit rounded-full bg-orange-100 p-4">
-                    <IconComponent className="h-8 w-8 text-orange-600" />
+                <motion.div
+                  key={advantage.title}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: i * 0.1 }}
+                  className="text-center"
+                >
+                  <div
+                    className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-xl"
+                    style={{ backgroundColor: TEAL_PALE }}
+                  >
+                    <Icon className="h-6 w-6" style={{ color: TEAL }} />
                   </div>
-                  <h3 className="mb-2 text-xl font-semibold">
+                  <h3
+                    className="mb-2 text-lg font-bold"
+                    style={{ color: NAVY }}
+                  >
                     {advantage.title}
                   </h3>
-                  <p className="text-muted-foreground">
+                  <p className="text-sm leading-relaxed text-slate-500">
                     {advantage.description}
                   </p>
-                </div>
+                </motion.div>
               );
             })}
           </div>
         </div>
       </section>
 
-      {/* Process */}
-      <section className="bg-gray-50 py-20">
-        <div className="container mx-auto px-4">
-          <div className="mb-16 text-center">
-            <h2 className="mb-4 text-3xl font-bold md:text-4xl">
+      {/* ── Process ── */}
+      <section className="bg-white py-20 md:py-28">
+        <div className="mx-auto max-w-7xl px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="mb-16 text-center"
+          >
+            <span
+              className="mb-3 inline-block text-sm font-semibold tracking-wider uppercase"
+              style={{ color: TEAL }}
+            >
+              Ablauf
+            </span>
+            <h2
+              className="mb-4 text-3xl font-bold tracking-tight md:text-4xl"
+              style={{ color: NAVY }}
+            >
               Von der Beratung zur neuen Heizung
             </h2>
-            <p className="text-muted-foreground mx-auto max-w-2xl text-lg">
+            <p className="mx-auto max-w-2xl text-slate-500">
               So läuft Ihr Heizungsprojekt mit uns ab.
             </p>
-          </div>
+          </motion.div>
 
           <div className="grid grid-cols-1 gap-8 md:grid-cols-4">
-            {[
-              {
-                step: "01",
-                title: "Beratung",
-                description: "Kostenlose Beratung und Vor-Ort-Besichtigung",
-              },
-              {
-                step: "02",
-                title: "Planung",
-                description: "Individuelle Planung und Angebotserstellung",
-              },
-              {
-                step: "03",
-                title: "Installation",
-                description: "Professionelle Installation durch Fachkräfte",
-              },
-              {
-                step: "04",
-                title: "Service",
-                description: "Wartung und Service für lange Lebensdauer",
-              },
-            ].map((item) => (
-              <div key={item.step} className="text-center">
-                <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-orange-600 text-xl font-bold text-white">
+            {processSteps.map((item, i) => (
+              <motion.div
+                key={item.step}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: i * 0.1 }}
+                className="text-center"
+              >
+                <div
+                  className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full text-xl font-bold text-white"
+                  style={{ backgroundColor: TEAL }}
+                >
                   {item.step}
                 </div>
-                <h3 className="mb-2 text-xl font-semibold">{item.title}</h3>
-                <p className="text-muted-foreground">{item.description}</p>
-              </div>
+                <h3
+                  className="mb-2 text-lg font-bold"
+                  style={{ color: NAVY }}
+                >
+                  {item.title}
+                </h3>
+                <p className="text-sm leading-relaxed text-slate-500">
+                  {item.description}
+                </p>
+              </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Förderungen */}
-      <section className="py-20">
-        <div className="container mx-auto px-4">
-          <div className="rounded-2xl bg-gradient-to-r from-orange-50 to-red-50 p-8 md:p-12">
-            <div className="mb-8 text-center">
-              <h2 className="mb-4 text-3xl font-bold md:text-4xl">
-                Staatliche Förderungen nutzen
-              </h2>
-              <p className="text-muted-foreground mx-auto max-w-2xl text-lg">
-                Sparen Sie bis zu 40% der Investitionskosten durch staatliche
-                Förderprogramme.
-              </p>
-            </div>
+      {/* ── Förderungen ── */}
+      <section
+        className="py-20 md:py-28"
+        style={{ backgroundColor: OFF_WHITE }}
+      >
+        <div className="mx-auto max-w-7xl px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="overflow-hidden rounded-2xl border border-slate-200/80"
+            style={{ backgroundColor: TEAL_PALE }}
+          >
+            <div className="p-8 md:p-12">
+              <div className="mb-10 text-center">
+                <div
+                  className="mx-auto mb-4 flex h-13 w-13 items-center justify-center rounded-xl"
+                  style={{ backgroundColor: "white" }}
+                >
+                  <BadgeEuro className="h-6 w-6" style={{ color: TEAL }} />
+                </div>
+                <h2
+                  className="mb-4 text-3xl font-bold tracking-tight md:text-4xl"
+                  style={{ color: NAVY }}
+                >
+                  Staatliche Förderungen nutzen
+                </h2>
+                <p className="mx-auto max-w-2xl text-slate-500">
+                  Sparen Sie bis zu 40% der Investitionskosten durch staatliche
+                  Förderprogramme.
+                </p>
+              </div>
 
-            <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
-              <div className="text-center">
-                <div className="mb-2 text-3xl font-bold text-orange-600">
-                  bis 40%
-                </div>
-                <div className="text-muted-foreground text-sm">
-                  BEG-Förderung für Wärmepumpen
-                </div>
+              <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
+                {foerderungen.map((item, i) => (
+                  <motion.div
+                    key={item.label}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: i * 0.1 }}
+                    className="rounded-xl bg-white p-6 text-center shadow-sm"
+                  >
+                    <div
+                      className="mb-2 text-3xl font-bold"
+                      style={{ color: TEAL }}
+                    >
+                      {item.value}
+                    </div>
+                    <div className="text-sm text-slate-500">{item.label}</div>
+                  </motion.div>
+                ))}
               </div>
-              <div className="text-center">
-                <div className="mb-2 text-3xl font-bold text-orange-600">
-                  bis 20%
-                </div>
-                <div className="text-muted-foreground text-sm">
-                  Für Gas-Brennwertkessel
-                </div>
-              </div>
-              <div className="text-center">
-                <div className="mb-2 text-3xl font-bold text-orange-600">
-                  bis 35%
-                </div>
-                <div className="text-muted-foreground text-sm">
-                  Für Biomasse-Heizungen
-                </div>
-              </div>
-            </div>
 
-            <div className="mt-8 text-center">
-              <p className="text-muted-foreground mb-4">
-                Wir unterstützen Sie bei der Beantragung aller verfügbaren
-                Fördermittel.
-              </p>
-              <Button asChild>
-                <Link href="/kontakt">Fördermittelberatung anfordern</Link>
-              </Button>
+              <div className="mt-10 text-center">
+                <p className="mb-5 text-slate-500">
+                  Wir unterstützen Sie bei der Beantragung aller verfügbaren
+                  Fördermittel.
+                </p>
+                <Link
+                  href="/kontakt"
+                  className="inline-flex items-center gap-2 rounded-lg px-6 py-3 text-sm font-semibold text-white shadow-lg transition-all hover:shadow-xl hover:brightness-110"
+                  style={{
+                    backgroundColor: TEAL,
+                    boxShadow: "0 10px 30px -5px rgba(0,151,167,0.3)",
+                  }}
+                >
+                  Fördermittelberatung anfordern
+                  <ArrowRight className="h-4 w-4" />
+                </Link>
+              </div>
             </div>
-          </div>
+          </motion.div>
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="bg-orange-600 py-20 text-white">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="mb-4 text-3xl font-bold md:text-4xl">
-            Neue Heizung geplant?
-          </h2>
-          <p className="mx-auto mb-8 max-w-2xl text-lg">
-            Lassen Sie sich von unseren Heizungsexperten beraten. Wir finden die
-            optimale Lösung für Ihr Zuhause.
-          </p>
-          <div className="flex flex-col justify-center gap-4 sm:flex-row">
-            <Button asChild size="lg" variant="secondary">
-              <Link href="/kontakt">Kostenlose Beratung</Link>
-            </Button>
-            <Button
-              asChild
-              size="lg"
-              variant="outline"
-              className="border-white bg-transparent text-white hover:bg-white hover:text-orange-600"
+      {/* ── CTA ── */}
+      <section
+        className="relative overflow-hidden"
+        style={{ backgroundColor: NAVY }}
+      >
+        {/* Geometric bg pattern */}
+        <div
+          className="absolute inset-0 opacity-[0.05]"
+          style={{
+            backgroundImage: `
+              linear-gradient(30deg, ${TEAL} 12%, transparent 12.5%, transparent 87%, ${TEAL} 87.5%, ${TEAL}),
+              linear-gradient(150deg, ${TEAL} 12%, transparent 12.5%, transparent 87%, ${TEAL} 87.5%, ${TEAL}),
+              linear-gradient(30deg, ${TEAL} 12%, transparent 12.5%, transparent 87%, ${TEAL} 87.5%, ${TEAL}),
+              linear-gradient(150deg, ${TEAL} 12%, transparent 12.5%, transparent 87%, ${TEAL} 87.5%, ${TEAL}),
+              linear-gradient(60deg, rgba(0,151,167,0.3) 25%, transparent 25.5%, transparent 75%, rgba(0,151,167,0.3) 75%, rgba(0,151,167,0.3)),
+              linear-gradient(60deg, rgba(0,151,167,0.3) 25%, transparent 25.5%, transparent 75%, rgba(0,151,167,0.3) 75%, rgba(0,151,167,0.3))
+            `,
+            backgroundSize: "80px 140px",
+            backgroundPosition:
+              "0 0, 0 0, 40px 70px, 40px 70px, 0 0, 40px 70px",
+          }}
+        />
+
+        <div className="relative mx-auto max-w-7xl px-6 py-20 md:py-28">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="mx-auto max-w-2xl text-center"
+          >
+            <span
+              className="mb-3 inline-block text-sm font-semibold tracking-wider uppercase"
+              style={{ color: TEAL_LIGHT }}
             >
-              <Link href="tel:+491234567890">
-                <Phone className="mr-2 h-4 w-4" />
+              Jetzt starten
+            </span>
+            <h2 className="mb-4 text-3xl font-bold tracking-tight text-white md:text-4xl">
+              Neue Heizung geplant?
+            </h2>
+            <p className="mx-auto mb-8 max-w-2xl text-lg leading-relaxed text-slate-300">
+              Lassen Sie sich von unseren Heizungsexperten beraten. Wir finden
+              die optimale Lösung für Ihr Zuhause.
+            </p>
+            <div className="flex flex-col justify-center gap-3 sm:flex-row">
+              <Link
+                href="/kontakt"
+                className="inline-flex items-center justify-center gap-2 rounded-lg px-6 py-3 text-sm font-semibold text-white shadow-lg transition-all hover:shadow-xl hover:brightness-110"
+                style={{
+                  backgroundColor: TEAL,
+                  boxShadow: "0 10px 30px -5px rgba(0,151,167,0.3)",
+                }}
+              >
+                Kostenlose Beratung
+                <ArrowRight className="h-4 w-4" />
+              </Link>
+              <Link
+                href="tel:+491234567890"
+                className="inline-flex items-center justify-center gap-2 rounded-lg border border-white/15 px-6 py-3 text-sm font-semibold text-white/80 transition-all hover:border-white/30 hover:bg-white/5 hover:text-white"
+              >
+                <Phone className="h-4 w-4" />
                 Notdienst anrufen
               </Link>
-            </Button>
-          </div>
+            </div>
+          </motion.div>
         </div>
       </section>
     </main>

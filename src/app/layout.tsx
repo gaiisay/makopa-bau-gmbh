@@ -1,7 +1,7 @@
 import "@/styles/globals.css";
 
 import { type Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Source_Sans_3 } from "next/font/google";
 import { LayoutShell } from "@/components/layout-shell";
 
 export const metadata: Metadata = {
@@ -11,17 +11,17 @@ export const metadata: Metadata = {
   icons: [{ rel: "icon", url: "/favicon.ico" }],
 };
 
-const inter = Inter({
+const sourceSans = Source_Sans_3({
   subsets: ["latin"],
-  variable: "--font-inter",
+  variable: "--font-source-sans",
 });
 
 export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="de" className={`${inter.variable}`}>
-      <body className="bg-background min-h-screen">
+    <html lang="de" className={`${sourceSans.variable}`}>
+      <body className="min-h-screen bg-white">
         <LayoutShell>{children}</LayoutShell>
       </body>
     </html>
