@@ -25,10 +25,10 @@ import { Logo } from "./logo";
 const NAVY_LIGHT = "#224B7A";
 
 const leistungen = [
-  { name: "Baustellenmanagement", href: "/logistik" },
-  { name: "Erdarbeiten & Außenanlagen", href: "/gala-bau" },
-  { name: "Speziallösungen / Abbruch", href: "/abbruch-umbau" },
-  { name: "Vermietung", href: "/heizung" },
+  { name: "Baustellenmanagement", href: "/baustellenmanagement" },
+  { name: "Erdarbeiten & Außenanlagen", href: "/erdarbeiten-aussenanlagen" },
+  { name: "Speziallösungen / Abbruch", href: "/spezialloesungen-abbruch" },
+  { name: "Vermietung", href: "/vermietung" },
 ];
 
 export function Navigation() {

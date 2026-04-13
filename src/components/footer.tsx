@@ -40,7 +40,7 @@ export function Footer() {
             <ul className="space-y-2.5 text-sm">
               <li>
                 <Link
-                  href="/logistik"
+                  href="/baustellenmanagement"
                   className="transition-colors hover:text-white"
                 >
                   Baustellenmanagement
@@ -48,7 +48,7 @@ export function Footer() {
               </li>
               <li>
                 <Link
-                  href="/gala-bau"
+                  href="/erdarbeiten-aussenanlagen"
                   className="transition-colors hover:text-white"
                 >
                   Erdarbeiten & Außenanlagen
@@ -56,7 +56,7 @@ export function Footer() {
               </li>
               <li>
                 <Link
-                  href="/abbruch-umbau"
+                  href="/spezialloesungen-abbruch"
                   className="transition-colors hover:text-white"
                 >
                   Speziallösungen / Abbruch
@@ -64,7 +64,7 @@ export function Footer() {
               </li>
               <li>
                 <Link
-                  href="/heizung"
+                  href="/vermietung"
                   className="transition-colors hover:text-white"
                 >
                   Vermietung

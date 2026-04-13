@@ -31,7 +31,7 @@ const businessAreas = [
     description:
       "Von der Organisation über die Logistik bis zur Schnittstellenkoordination — unterstützende Leistungen für einen reibungslosen Bauablauf.",
     icon: HardHat,
-    href: "/logistik",
+    href: "/baustellenmanagement",
     highlights: [
       { icon: ClipboardCheck, text: "Baustellenorganisation" },
       { icon: Truck, text: "Logistik & Materialfluss" },
@@ -43,7 +43,7 @@ const businessAreas = [
     description:
       "Von Baugrube und Entwässerung bis zu Pflasterarbeiten und Wiederherstellung — alles aus einer Hand.",
     icon: TreePine,
-    href: "/gala-bau",
+    href: "/erdarbeiten-aussenanlagen",
     highlights: [
       { icon: Shovel, text: "Erdarbeiten & Baugruben" },
       { icon: Droplets, text: "Entwässerung & Kanalanschlüsse" },
@@ -55,7 +55,7 @@ const businessAreas = [
     description:
       "Strukturierter Rückbau, sichere Entkernung und individuelle Sonderlösungen für anspruchsvolle Bauprojekte.",
     icon: Wrench,
-    href: "/abbruch-umbau",
+    href: "/spezialloesungen-abbruch",
     highlights: [
       { icon: Hammer, text: "Rückbau & Entkernung" },
       { icon: Trash2, text: "Schadstoffsanierung" },
@@ -67,7 +67,7 @@ const businessAreas = [
     description:
       "Baustelleneinrichtung, Genehmigungen, Hilfskonstruktionen und ausgewählte Geräte für strukturierte Projektabläufe.",
     icon: Warehouse,
-    href: "/heizung",
+    href: "/vermietung",
     highlights: [
       { icon: KeyRound, text: "BE-Vermietung & Einrichtung" },
       { icon: Ruler, text: "Vermessungskonstruktionen" },
@@ -284,7 +284,7 @@ export default function HomePage() {
               <ul className="mb-6 space-y-2 text-slate-300">
                 <li>
                   <Link
-                    href="/logistik"
+                    href="/baustellenmanagement"
                     className="inline-flex items-center gap-2 font-medium text-white transition-colors hover:text-primary"
                   >
                     <ChevronRight className="h-4 w-4 text-primary" />
@@ -293,7 +293,7 @@ export default function HomePage() {
                 </li>
                 <li>
                   <Link
-                    href="/gala-bau"
+                    href="/erdarbeiten-aussenanlagen"
                     className="inline-flex items-center gap-2 font-medium text-white transition-colors hover:text-primary"
                   >
                     <ChevronRight className="h-4 w-4 text-primary" />
@@ -302,7 +302,7 @@ export default function HomePage() {
                 </li>
                 <li>
                   <Link
-                    href="/abbruch-umbau"
+                    href="/spezialloesungen-abbruch"
                     className="inline-flex items-center gap-2 font-medium text-white transition-colors hover:text-primary"
                   >
                     <ChevronRight className="h-4 w-4 text-primary" />
@@ -311,7 +311,7 @@ export default function HomePage() {
                 </li>
                 <li>
                   <Link
-                    href="/heizung"
+                    href="/vermietung"
                     className="inline-flex items-center gap-2 font-medium text-white transition-colors hover:text-primary"
                   >
                     <ChevronRight className="h-4 w-4 text-primary" />
