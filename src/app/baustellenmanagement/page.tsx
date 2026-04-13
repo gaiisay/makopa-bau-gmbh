@@ -23,10 +23,10 @@ const TEAL = "#0097A7";
 
 const services = [
   {
-    title: "Unterstützung der Baustellenorganisation",
+    title: "Baustellenorganisation",
     icon: ClipboardCheck,
     description:
-      "Mitwirkung bei der Strukturierung und Aufrechterhaltung geordneter Baustellenabläufe.",
+      "Unterstützung bei der Strukturierung und Aufrechterhaltung geordneter Baustellenabläufe.",
     features: [
       "Strukturierung geordneter Baustellenabläufe",
       "Einrichtung und Anpassung von Baustellenbereichen",
@@ -34,10 +34,10 @@ const services = [
     ],
   },
   {
-    title: "Unterstützung der Baustellenlogistik",
+    title: "Baustellenlogistik",
     icon: Truck,
     description:
-      "Mitwirkung bei der Koordination von Materialanlieferungen und Gerätebewegungen.",
+      "Unterstützung bei der Koordination von Materialanlieferungen und Gerätebewegungen.",
     features: [
       "Koordination von Materialanlieferungen & Gerätebewegungen",
       "Flächenorganisation (Lager-, Verkehrs- & Arbeitsbereiche)",
@@ -48,7 +48,7 @@ const services = [
     title: "Schnittstellenkoordination zwischen Gewerken",
     icon: Users,
     description:
-      "Mitwirkung bei der Abstimmung von Arbeitsabläufen zwischen beteiligten Gewerken.",
+      "Unterstützung bei der Abstimmung von Arbeitsabläufen zwischen beteiligten Gewerken.",
     features: [
       "Abstimmung von Arbeitsabläufen zwischen Gewerken",
       "Vermeidung von Behinderungen & Überschneidungen",
@@ -59,7 +59,7 @@ const services = [
     title: "Arbeitsschutz & Sicherheitsmaßnahmen",
     icon: Shield,
     description:
-      "Mitwirkung bei der praktischen Umsetzung vorgegebener Sicherheits- und Schutzmaßnahmen.",
+      "Unterstützung bei der praktischen Umsetzung vorgegebener Sicherheits- und Schutzmaßnahmen.",
     features: [
       "Umsetzung vorgegebener Sicherheits- & Schutzmaßnahmen",
       "Einhaltung von Baustellenregelungen & Sicherheitsvorgaben",
@@ -70,7 +70,7 @@ const services = [
     title: "Umsetzung projektspezifischer Konzepte",
     icon: Cog,
     description:
-      "Mitwirkung bei der Umsetzung vorgegebener Baustellenkonzepte wie Staubschutz, Logistik und Zugangskonzepte.",
+      "Unterstützung bei der Umsetzung vorgegebener Baustellenkonzepte wie Staubschutz, Logistik und Zugangskonzepte.",
     features: [
       "Staubschutz-, Logistik- & Zugangskonzepte",
       "Anpassung der Konzepte an den Baufortschritt",
