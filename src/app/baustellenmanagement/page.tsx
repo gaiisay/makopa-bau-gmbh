@@ -30,7 +30,7 @@ const services = [
     features: [
       "Strukturierung geordneter Baustellenabläufe",
       "Einrichtung und Anpassung von Baustellenbereichen",
-      "Reibungsloser Bauablauf gemäß Vorgaben der Bauleitung",
+      "Reibungsloser Bauablauf in bedarfsgerechter Abstimmung mit dem Kunden",
     ],
   },
   {
