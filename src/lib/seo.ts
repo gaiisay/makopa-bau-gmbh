@@ -9,7 +9,9 @@ type PageSeoEntry = {
   path: string;
   keywords: string[];
   priority: number;
-  changeFrequency: NonNullable<MetadataRoute.Sitemap[number]["changeFrequency"]>;
+  changeFrequency: NonNullable<
+    MetadataRoute.Sitemap[number]["changeFrequency"]
+  >;
   robots?: Metadata["robots"];
 };
 
@@ -47,7 +49,8 @@ export const siteConfig = {
 
 export const pageSeo = {
   home: {
-    title: "Bauunternehmen in Pulheim – Baustellenmanagement, Erdarbeiten und Abbruch",
+    title:
+      "Bauunternehmen in Pulheim – Baustellenmanagement, Erdarbeiten und Abbruch",
     description:
       "Makopa Bau GmbH vereint Baustellenmanagement, Erdarbeiten, Pflasterarbeiten, Abbruch und Vermietung unter einem Dach. Qualität, Effizienz und partnerschaftliches Arbeiten aus Pulheim für die Region.",
     path: "/",
@@ -118,7 +121,8 @@ export const pageSeo = {
     changeFrequency: "monthly",
   },
   vermietung: {
-    title: "Baustellenservices und Vermietung – Einrichtung, Geräte und Genehmigungen",
+    title:
+      "Baustellenservices und Vermietung – Einrichtung, Geräte und Genehmigungen",
     description:
       "Baustelleneinrichtung mieten, Genehmigungen beantragen, Vermessungskonstruktionen und Baustellengeräte nutzen. Praxisgerechte Baustellenservices von Makopa Bau aus Pulheim.",
     path: "/vermietung",
