@@ -45,19 +45,19 @@ export function Navigation() {
               href="tel:+4922389356034"
               className="flex items-center gap-1.5 transition-colors hover:text-white"
             >
-              <Phone className="h-3 w-3" />
+              <Phone className="h-3 w-3" aria-hidden="true" />
               +49 (0) 2238 9356034
             </a>
             <a
               href="mailto:kontakt@makopa.de"
               className="hidden items-center gap-1.5 transition-colors hover:text-white md:flex"
             >
-              <Mail className="h-3 w-3" />
+              <Mail className="h-3 w-3" aria-hidden="true" />
               kontakt@makopa.de
             </a>
           </div>
           <div className="hidden items-center gap-1.5 md:flex">
-            <MapPin className="h-3 w-3" />
+            <MapPin className="h-3 w-3" aria-hidden="true" />
             Wolfhelmstr. 36, 50259 Pulheim
           </div>
         </div>
@@ -87,7 +87,7 @@ export function Navigation() {
                     Leistungen
                   </NavigationMenuTrigger>
                   <NavigationMenuContent>
-                    <ul className="grid w-[200px] gap-0.5 p-1.5">
+                    <ul className="grid w-50 gap-0.5 p-1.5">
                       {leistungen.map((item) => (
                         <li key={item.name}>
                           <NavigationMenuLink asChild>
@@ -129,11 +129,14 @@ export function Navigation() {
           <button
             className="lg:hidden"
             onClick={() => setMobileOpen(!mobileOpen)}
+            aria-expanded={mobileOpen}
+            aria-controls="mobile-navigation"
+            aria-label={mobileOpen ? "Menü schließen" : "Menü öffnen"}
           >
             {mobileOpen ? (
-              <X className="h-6 w-6 text-slate-700" />
+              <X className="h-6 w-6 text-slate-700" aria-hidden="true" />
             ) : (
-              <Menu className="h-6 w-6 text-slate-700" />
+              <Menu className="h-6 w-6 text-slate-700" aria-hidden="true" />
             )}
           </button>
         </div>
@@ -144,6 +147,7 @@ export function Navigation() {
         <motion.div
           initial={{ opacity: 0, y: -8 }}
           animate={{ opacity: 1, y: 0 }}
+          id="mobile-navigation"
           className="border-b border-slate-200 bg-white px-6 py-4 lg:hidden"
         >
           <Link
@@ -158,20 +162,26 @@ export function Navigation() {
           <button
             className="flex w-full items-center justify-between py-2.5 text-sm font-medium text-slate-600"
             onClick={() => setMobileLeistungenOpen(!mobileLeistungenOpen)}
+            aria-expanded={mobileLeistungenOpen}
+            aria-controls="mobile-leistungen"
           >
             Leistungen
             <ChevronDown
+              aria-hidden="true"
               className={`h-4 w-4 text-slate-400 transition-transform duration-200 ${mobileLeistungenOpen ? "rotate-180" : ""}`}
             />
           </button>
           {mobileLeistungenOpen && (
-            <div className="pl-4">
+            <div id="mobile-leistungen" className="pl-4">
               {leistungen.map((item) => (
                 <Link
                   key={item.name}
                   href={item.href}
                   className="block py-2 text-sm text-slate-500"
-                  onClick={() => setMobileOpen(false)}
+                  onClick={() => {
+                    setMobileOpen(false);
+                    setMobileLeistungenOpen(false);
+                  }}
                 >
                   {item.name}
                 </Link>

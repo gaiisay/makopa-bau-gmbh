@@ -7,6 +7,7 @@ import {
   Shovel,
   Droplets,
   LayoutGrid,
+  Sprout,
   MapPin,
   Layers,
   RotateCcw,
@@ -74,12 +75,23 @@ const services = [
     title: "Pflasterarbeiten & Außenflächen",
     icon: LayoutGrid,
     description:
-      "Funktionalität trifft auf saubere Optik.",
+      "Funktionalität trifft auf saubere Optik und dauerhaft nutzbare Flächen.",
     features: [
       "Pflaster- und Plattenarbeiten (Beton, Naturstein, Keramik)",
       "Herstellung von Einfahrten, Wegen und Terrassen",
       "Einfassungen mit Bord- und Kantensteinen",
       "Stellplätze und Sonderflächen (z. B. Rasenwaben)",
+    ],
+  },
+  {
+    title: "Pflanzarbeiten & Begrünung",
+    icon: Sprout,
+    description:
+      "Begrünte Außenflächen für einen stimmigen und funktionalen Abschluss.",
+    features: [
+      "Pflanzarbeiten für Beete, Grünstreifen und Eingangsbereiche",
+      "Rasenflächen, Einsaaten und vorbereitende Bodenarbeiten",
+      "Strukturierte Begrünung passend zu Nutzung und Pflegeaufwand",
     ],
   },
   {
@@ -158,9 +170,10 @@ export default function GalaBauPage() {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="mb-10 max-w-2xl text-lg leading-relaxed text-slate-300"
             >
-              Ob Neubau, Umgestaltung oder Erschließung — wir realisieren Ihre
-              Außenanlagen und Erdarbeiten strukturiert, zuverlässig und
-              technisch durchdacht. Von der Baugrube bis zur fertigen Oberfläche.
+              Ob eigenständige Erdarbeiten, Pflasterarbeiten oder komplette
+              Außenanlagen: Wir realisieren Ihr Projekt strukturiert,
+              zuverlässig und technisch durchdacht. Von der Baugrube bis zur
+              fertigen Oberfläche und Begrünung.
             </motion.p>
 
             <motion.div
@@ -200,8 +213,9 @@ export default function GalaBauPage() {
               Unsere Leistungen im Überblick
             </h2>
             <p className="mx-auto max-w-2xl text-muted-foreground">
-              Von der Baugrube bis zur fertigen Oberfläche — alle Leistungen aus
-              einer Hand, abgestimmt auf Ihr Projekt.
+              Von Erdarbeiten und Entwässerung über Pflasterarbeiten bis zu
+              Pflanzarbeiten und Außenflächen: Alle Leistungen aus einer Hand,
+              abgestimmt auf Ihr Projekt.
             </p>
           </motion.div>
 
